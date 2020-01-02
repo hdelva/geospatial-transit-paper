@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title property="foaf:name schema:name">My Awesome Article</title>
+  <link rel="stylesheet" media="screen" href="styles/screen.css" />
+  <link rel="stylesheet" media="print"  href="styles/print.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  
+  <meta name="citation_title" content="My Awesome Article">
+  <meta name="citation_author" content="John Doe" />
+  
+  <meta name="citation_publication_date" content="2020/01/02" />
+</head>
+
+<body prefix="dctypes: http://purl.org/dc/dcmitype/ pimspace: http://www.w3.org/ns/pim/space# rsa: http://www.w3.org/ns/auth/rsa# cert: http://www.w3.org/ns/auth/cert# wgs: http://www.w3.org/2003/01/geo/wgs84_pos# biblio: http://purl.org/net/biblio# bibo: http://purl.org/ontology/bibo/ book: http://purl.org/NET/book/vocab# ov: http://open.vocab.org/terms/ doap: http://usefulinc.com/ns/doap# dbr: http://dbpedia.org/resource/ dbp: http://dbpedia.org/property/ sio: http://semanticscience.org/resource/ opmw: http://www.opmw.org/ontology/ deo: http://purl.org/spar/deo/ doco: http://purl.org/spar/doco/ cito: http://purl.org/spar/cito/ fabio: http://purl.org/spar/fabio/ solid: http://www.w3.org/ns/solid/terms# acl: http://www.w3.org/ns/auth/acl# dio: https://w3id.org/dio# lsc: http://linkedscience.org/lsc/ns#" typeof="schema:CreativeWork sioc:Post prov:Entity lsc:Research">
+  <header>
+  <h1 id="my-awesome-article">My Awesome Article</h1>
+
+  <ul id="authors">
+    <li><a rev="lsc:participatesIn" property="foaf:maker schema:creator schema:author schema:publisher" href="http://www.example.org/" typeof="foaf:Person schema:Person" resource="http://www.example.org/#me">John Doe</a></li>
+  </ul>
+
+  <ul id="affiliations">
+    <li id="myaffiliation">Awesome Inc.</li>
+  </ul>
+
+  <section id="abstract" inlist="" rel="schema:hasPart" resource="#abstract">
+<div datatype="rdf:HTML" property="schema:description">
+      <h2 property="schema:name">Abstract</h2>
+      <!-- Context - bigger picture     -->
+      <p>The more unique your mobility needs are, the less likely you are to find an existing data service that suits your needs. Therein lies the beauty of publishing the raw data; data owners don’t have to anticipate everyone’s needs if third parties can fill in the gaps.
+<!-- Need - gap we try to solve   -->
+Public transit operators often publish their data as a large data dump under the assumption that data consumers want to process the entire dataset anyway. Unfortunately, developers with limited computational resources can have trouble ingesting all this data. Linked Connections is an alternative publishing scheme that fragments the data by the connections’ departure times. This enables data consumers to be more selective in the data they choose to process. This is already a good improvement over monolithic data dumps, but each fragment still contains data from the entire operator’s service area.
+<!-- Task - what we did           -->
+We build upon the idea of Linked Connections by fragmenting geospatially as well as by departure time. Ideally, our publishing scheme must work in the case  where the data publisher is not the data owner. This means that the fragmentation method should be robust to changes in the original data, such as the deletion or the addition of stops. Contrary to the conventional approach of generating discrete sets of stops, we propose generating geospatial partitions instead. These partitions are published alongside the transit data itself, allowing data consumers to infer which fragments contain which data. 
+<!-- Object       -->
+In this paper we explore conventional clustering methods such as k-Means and METIS, alongside two simple methods of our own that are custom-tailored to public transit data. We compare the effectiveness of each for the use case of client-side route planning.
+<!-- Findings     -->
+Our results show that the number of generated partitions greatly affects the performance of route planning. Even with only 4 partitions queries get answered 2.2 times faster while also requiring 2.6 times less data, and 16 partitions already yield 4.4 times faster queries and 7.2 times less required data. Interestingly enough the choice of fragmentation strategy has less impact; a simple clustering method such as k-Means results in 5% faster queries than a complex method such as METIS.
+<!-- Conclusion   -->
+These results show that data publishers don’t have to train the perfect clustering model – even a simple approach is effective. 
+<!-- Perspectives -->
+Consequently, this increases the likelihood that such a publishing scheme may be adopted.</p>
+    </div>
+</section>
+
+</header>
+
+<main>
+  <!-- Add sections by specifying their file name, excluding the '.md' suffix. -->
+  <section id="introduction" inlist="" rel="schema:hasPart" resource="#introduction">
+<div datatype="rdf:HTML" property="schema:description">
+      <h2 property="schema:name">Introduction</h2>
+
+      <p>The <a href="https://opendefinition.org/">Open Definition</a> defines open data as data that can be: “… freely used, modified, and shared by anyone for any purpose”. This may seem utopian, but these principles are being adopted all over the world. The OECD has documented the positive impact of <span property="schema:citation http://purl.org/spar/cito/cites" resource="https://dx.doi.org/https://doi.org/https://doi.org/10.1787/5k46bj4f03s7-en"><a href="https://www.oecd-ilibrary.org/content/paper/5k46bj4f03s7-en">Open Government Data</a></span> <span class="references">[<a href="#ref-1">1</a>]</span>, and similar ideas have surfaced in academics with the FAIR Data Principles <span class="references">[<a href="#ref-2">2</a>]</span> where a common guideline is to make data “As open as possible as possible, as closed as necessary” <span class="references">[<a href="#ref-3">3</a>]</span>. Many public transit operators also make their timetables available as open data. This is often done using de facto standards such as <a href="https://developers.google.com/transit/gtfs">GTFS</a> or using official standards such as <a href="http://netex-cen.eu/">NeTEx</a>.</p>
+
+      <p>Both of these data standards result in large data dumps. The combined GTFS feed of the public transit companies that operate in the Brussels area (SNCB, STIB, De Lijn, and Tec) is already over 1 GB of uncompressed data. For a hobbyist developer that wants use a Raspberry Pi to show a dashboard of bus passages near them, ingesting and processing the entire GTFS data dump may not be feasible. Luckily, most public transit operators also have real-time APIs, so they can just periodically poll data from a few stops instead. Now consider the case of someone who is looking to buy a house, and the quality of service of wheelchair accessible public transit is important to them. Real-time data is no longer sufficient; the weekend offering may be entirely different, or the wheelchair accessible buses only run during off-peak hours. They can fall back to the data dumps, but they will have to ingest much more data than necessary.</p>
+
+      <p>Another use case for open transit data is route planning. The ideal route is subjective; a reasonable walking distance will differ from person to person, and will even depend on a person’s mood. Contemporary route planning services preprocess data to provide better query time performance <span class="references">[<a href="#ref-4">4</a>, <a href="#ref-5">5</a>, <a href="#ref-6">6</a>]</span>, but this preprocessing also restricts the types of queries that can be answered. For example, an algorithm that reuses precomputed shortest paths between stops will not be able to give you the most scenic path – unless those are precomputed as well. But what if someone could use their own device to calculate their own personalized routes instead of using a service? They could tweak journeys until they find exactly what they are looking for, without putting an unreasonable strain on a route planning service. This approach obviously comes with its own challenges, and ingesting data is again one of them. Downloading the entire dataset to plan a route from one adjacent city to another will make the process too slow to be useful.</p>
+
+      <p>These examples show that the way data is published can restrict the ways it is used. And since the goal of open data is to let people use the data how they wish, the ideal data publishing scheme should not impose such restrictions.</p>
+    </div>
+</section>
+
+</main>
+
+<footer><section>
+<h2 id="references">References</h2>
+<dl class="references">
+  <dt id="ref-1">[1]</dt>
+  <dd resource="https://dx.doi.org/https://doi.org/https://doi.org/10.1787/5k46bj4f03s7-en" typeof="schema:Article">Ubaldi, B.: Open Government Data. (2013).</dd>
+  <dt id="ref-2">[2]</dt>
+  <dd resource="#fair" typeof="schema:Article">Wilkinson, M.D., Dumontier, M., Aalbersberg, I.J.J., Appleton, G., Axton, M., Baak, A., Blomberg, N., Boiten, J.-W., da Silva Santos, L.B., Bourne, P.E., others: The FAIR Guiding Principles for scientific data management and stewardship. Scientific data. 3, (2016).</dd>
+  <dt id="ref-3">[3]</dt>
+  <dd resource="#landi2019fair" typeof="schema:Article">Landi, A., Thompson, M., Giannuzzi, V., Bonifazi, F., Labastida, I., da Silva Santos, L.O.B., Roos, M.: The “A” of FAIR–as open as possible, as closed as necessary. Data Intelligence. 47–55 (2019).</dd>
+  <dt id="ref-4">[4]</dt>
+  <dd resource="#googlemaps" typeof="schema:Article">Bast, H., Carlsson, E., Eigenwillig, A., Geisberger, R., Harrelson, C., Raychev, V., Viger, F.: Fast routing in very large public transportation networks using transfer patterns. In: European Symposium on Algorithms. pp. 290–301. Springer (2010).</dd>
+  <dt id="ref-5">[5]</dt>
+  <dd resource="#ch" typeof="schema:Article">Geisberger, R., Sanders, P., Schultes, D., Delling, D.: Contraction hierarchies: Faster and simpler hierarchical routing in road networks. In: International Workshop on Experimental and Efficient Algorithms. pp. 319–333. Springer (2008).</dd>
+  <dt id="ref-6">[6]</dt>
+  <dd resource="#csa" typeof="schema:CreativeWork">Dibbelt, J., Pajor, T., Strasser, B., Wagner, D.: Connection Scan Algorithm (2017).</dd>
+</dl>
+</section>
+</footer>
+
+
+
+</body>
+</html>
