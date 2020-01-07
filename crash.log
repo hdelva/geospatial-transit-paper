@@ -1,8 +1,8 @@
-Crashlog created at 2020-01-02 18:32:33 +0100
+Crashlog created at 2020-01-03 17:08:46 +0100
 
 ===== MESSAGE:
 
-RuntimeError: Reference 'googlemaps ch' does not exist.
+RuntimeError: Could not find the file 'aa'
 
 ===== ITEM BEING COMPILED:
 
@@ -10,39 +10,33 @@ Current item: /index.md.erb (:default representation)
 
 ===== STACK TRACE:
 
-  23. from /var/lib/gems/2.5.0/gems/nanoc-core-4.11.14/lib/nanoc/core/compilation_phases/resume.rb:42:in `block in fiber_for'
-  22. from /var/lib/gems/2.5.0/gems/nanoc-core-4.11.14/lib/nanoc/core/compilation_phases/resume.rb:14:in `block in run'
-  21. from /var/lib/gems/2.5.0/gems/nanoc-core-4.11.14/lib/nanoc/core/compilation_phases/abstract.rb:25:in `block in call'
-  20. from /var/lib/gems/2.5.0/gems/nanoc-core-4.11.14/lib/nanoc/core/compilation_phases/abstract.rb:23:in `call'
-  19. from /var/lib/gems/2.5.0/gems/nanoc-core-4.11.14/lib/nanoc/core/compilation_phases/cache.rb:25:in `run'
-  18. from /var/lib/gems/2.5.0/gems/nanoc-core-4.11.14/lib/nanoc/core/compilation_phases/abstract.rb:25:in `block in call'
-  17. from /var/lib/gems/2.5.0/gems/nanoc-core-4.11.14/lib/nanoc/core/compilation_phases/abstract.rb:23:in `call'
-  16. from /var/lib/gems/2.5.0/gems/nanoc-core-4.11.14/lib/nanoc/core/compilation_phases/recalculate.rb:29:in `run'
-  15. from /var/lib/gems/2.5.0/gems/nanoc-core-4.11.14/lib/nanoc/core/action_sequence.rb:49:in `each'
-  14. from /var/lib/gems/2.5.0/gems/nanoc-core-4.11.14/lib/nanoc/core/action_sequence.rb:49:in `each'
-  13. from /var/lib/gems/2.5.0/gems/nanoc-core-4.11.14/lib/nanoc/core/action_sequence.rb:49:in `block in each'
-  12. from /var/lib/gems/2.5.0/gems/nanoc-core-4.11.14/lib/nanoc/core/compilation_phases/recalculate.rb:32:in `block in run'
-  11. from /var/lib/gems/2.5.0/gems/nanoc-core-4.11.14/lib/nanoc/core/executor.rb:22:in `filter'
-  10. from /var/lib/gems/2.5.0/gems/nanoc-core-4.11.14/lib/nanoc/core/filter.rb:188:in `setup_and_run'
-  9. from /var/lib/gems/2.5.0/gems/nanoc-core-4.11.14/lib/nanoc/core/filter.rb:68:in `block in define'
-  8. from /var/lib/gems/2.5.0/gems/nanoc-core-4.11.14/lib/nanoc/core/filter.rb:68:in `instance_exec'
-  7. from /var/lib/gems/2.5.0/gems/scholarmarkdown-2.7.0/lib/scholarmarkdown/filter/citation.rb:17:in `block in <top (required)>'
-  6. from /var/lib/gems/2.5.0/gems/bibmarkdown-2.0.0/lib/bibmarkdown/document.rb:17:in `to_markdown'
-  5. from /var/lib/gems/2.5.0/gems/bibmarkdown-2.0.0/lib/bibmarkdown/document.rb:17:in `gsub'
-  4. from /var/lib/gems/2.5.0/gems/bibmarkdown-2.0.0/lib/bibmarkdown/document.rb:21:in `block in to_markdown'
-  3. from /var/lib/gems/2.5.0/gems/bibmarkdown-2.0.0/lib/bibmarkdown/document.rb:21:in `map'
-  2. from /var/lib/gems/2.5.0/gems/bibmarkdown-2.0.0/lib/bibmarkdown/document.rb:21:in `block (2 levels) in to_markdown'
-  1. from /var/lib/gems/2.5.0/gems/bibmarkdown-2.0.0/lib/bibmarkdown/document.rb:60:in `create_reference'
-  /var/lib/gems/2.5.0/gems/bibmarkdown-2.0.0/lib/bibmarkdown/document.rb:52:in `find_entry'
+  0. /usr/lib/ruby/gems/2.6.0/gems/scholarmarkdown-2.7.0/lib/scholarmarkdown/snippets.rb:14:in `section'
+  1. item /index.md.erb (rep default):19:in `get_binding'
+  2. /usr/lib/ruby/2.6.0/erb.rb:901:in `eval'
+  3. /usr/lib/ruby/2.6.0/erb.rb:901:in `result'
+  4. /usr/lib/ruby/gems/2.6.0/gems/nanoc-4.11.14/lib/nanoc/filters/erb.rb:36:in `run'
+  5. /usr/lib/ruby/gems/2.6.0/gems/nanoc-core-4.11.14/lib/nanoc/core/filter.rb:188:in `setup_and_run'
+  6. /usr/lib/ruby/gems/2.6.0/gems/nanoc-core-4.11.14/lib/nanoc/core/executor.rb:22:in `filter'
+  7. /usr/lib/ruby/gems/2.6.0/gems/nanoc-core-4.11.14/lib/nanoc/core/compilation_phases/recalculate.rb:32:in `block in run'
+  8. /usr/lib/ruby/gems/2.6.0/gems/nanoc-core-4.11.14/lib/nanoc/core/action_sequence.rb:49:in `block in each'
+  9. /usr/lib/ruby/gems/2.6.0/gems/nanoc-core-4.11.14/lib/nanoc/core/action_sequence.rb:49:in `each'
+  10. /usr/lib/ruby/gems/2.6.0/gems/nanoc-core-4.11.14/lib/nanoc/core/action_sequence.rb:49:in `each'
+  11. /usr/lib/ruby/gems/2.6.0/gems/nanoc-core-4.11.14/lib/nanoc/core/compilation_phases/recalculate.rb:29:in `run'
+  12. /usr/lib/ruby/gems/2.6.0/gems/nanoc-core-4.11.14/lib/nanoc/core/compilation_phases/abstract.rb:23:in `call'
+  13. /usr/lib/ruby/gems/2.6.0/gems/nanoc-core-4.11.14/lib/nanoc/core/compilation_phases/abstract.rb:25:in `block in call'
+  14. /usr/lib/ruby/gems/2.6.0/gems/nanoc-core-4.11.14/lib/nanoc/core/compilation_phases/cache.rb:25:in `run'
+  15. /usr/lib/ruby/gems/2.6.0/gems/nanoc-core-4.11.14/lib/nanoc/core/compilation_phases/abstract.rb:23:in `call'
+  16. /usr/lib/ruby/gems/2.6.0/gems/nanoc-core-4.11.14/lib/nanoc/core/compilation_phases/abstract.rb:25:in `block in call'
+  17. /usr/lib/ruby/gems/2.6.0/gems/nanoc-core-4.11.14/lib/nanoc/core/compilation_phases/resume.rb:14:in `block in run'
 
 ===== VERSION INFORMATION:
 
 Nanoc 4.11.14 © 2007–2019 Denis Defreyne.
-Running ruby 2.5.5 (2019-03-15) on x86_64-linux-gnu with RubyGems 2.7.6.2.
+Running ruby 2.6.5 (2019-10-01) on x86_64-linux with RubyGems 3.0.6.
 
 ===== SYSTEM INFORMATION:
 
-Linux russell 5.3.0-24-generic #26-Ubuntu SMP Thu Nov 14 01:33:18 UTC 2019 x86_64 x86_64 x86_64 GNU/Linux
+Linux russell 5.4.2-arch1-1 #1 SMP PREEMPT Thu, 05 Dec 2019 12:29:40 +0000 x86_64 GNU/Linux
 
 ===== INSTALLED GEMS:
 
@@ -50,7 +44,7 @@ Linux russell 5.3.0-24-generic #26-Ubuntu SMP Thu Nov 14 01:33:18 UTC 2019 x86_6
   addressable 2.7.0
   bibmarkdown 2.0.0
   bibtex-ruby 5.0.1
-  bundler 2.1.2
+  bundler 2.0.2
   citeproc 1.0.9
   citeproc-ruby 1.1.10
   coderay 1.1.2
@@ -347,107 +341,107 @@ BUNDLED WITH
 
 ===== LOAD PATHS:
 
-  0. /var/lib/gems/2.5.0/gems/http_parser.rb-0.6.0/lib
-  1. /var/lib/gems/2.5.0/gems/em-websocket-0.5.1/lib/../lib
-  2. /var/lib/gems/2.5.0/gems/ref-2.0.0/lib
-  3. /var/lib/gems/2.5.0/gems/bundler-2.1.2/lib
-  4. /var/lib/gems/2.5.0/gems/w3c_validators-1.3.4/lib
-  5. /var/lib/gems/2.5.0/gems/unicode_utils-1.4.0/lib
-  6. /var/lib/gems/2.5.0/gems/thin-1.7.2/lib
-  7. /var/lib/gems/2.5.0/extensions/x86_64-linux/2.5.0/thin-1.7.2
-  8. /var/lib/gems/2.5.0/gems/serve-1.5.1/lib
-  9. /var/lib/gems/2.5.0/gems/tzinfo-2.0.1/lib
-  10. /var/lib/gems/2.5.0/gems/tilt-1.4.1/lib
-  11. /var/lib/gems/2.5.0/gems/scholarmarkdown-2.7.0/lib
-  12. /var/lib/gems/2.5.0/gems/therubyracer-0.12.3/lib
-  13. /var/lib/gems/2.5.0/gems/therubyracer-0.12.3/ext
-  14. /var/lib/gems/2.5.0/extensions/x86_64-linux/2.5.0/therubyracer-0.12.3
-  15. /var/lib/gems/2.5.0/gems/sass-3.7.4/lib
-  16. /var/lib/gems/2.5.0/gems/sass-listen-4.0.0/lib
-  17. /var/lib/gems/2.5.0/gems/rubypants-0.7.0/lib
-  18. /var/lib/gems/2.5.0/gems/rb-readline-0.5.5/lib
-  19. /var/lib/gems/2.5.0/gems/rack-test-0.8.3/lib
-  20. /var/lib/gems/2.5.0/gems/rack-livereload-0.3.17/lib
-  21. /var/lib/gems/2.5.0/gems/rack-1.6.12/lib
-  22. /var/lib/gems/2.5.0/gems/nokogiri-1.10.7/lib
-  23. /var/lib/gems/2.5.0/extensions/x86_64-linux/2.5.0/nokogiri-1.10.7
-  24. /var/lib/gems/2.5.0/gems/mini_portile2-2.4.0/lib
-  25. /var/lib/gems/2.5.0/gems/libv8-3.16.14.19-x86_64-linux/lib
-  26. /var/lib/gems/2.5.0/gems/libv8-3.16.14.19-x86_64-linux/ext
-  27. /var/lib/gems/2.5.0/gems/kramdown-math-sskatex-1.0.0/lib
-  28. /var/lib/gems/2.5.0/gems/sskatex-0.9.39/lib
-  29. /var/lib/gems/2.5.0/gems/kramdown-2.1.0/lib
-  30. /var/lib/gems/2.5.0/gems/katex-0.6.0/lib
-  31. /var/lib/gems/2.5.0/gems/json-2.3.0/lib
-  32. /var/lib/gems/2.5.0/extensions/x86_64-linux/2.5.0/json-2.3.0
-  33. /var/lib/gems/2.5.0/gems/i18n-1.0.1/lib
-  34. /var/lib/gems/2.5.0/gems/guard-process-1.2.1/lib
-  35. /var/lib/gems/2.5.0/gems/spoon-0.0.6/lib
-  36. /var/lib/gems/2.5.0/gems/guard-nanoc-2.1.7/lib
-  37. /var/lib/gems/2.5.0/gems/nanoc-4.11.14/lib
-  38. /var/lib/gems/2.5.0/gems/tty-which-0.4.1/lib
-  39. /var/lib/gems/2.5.0/gems/tty-command-0.9.0/lib
-  40. /var/lib/gems/2.5.0/gems/pastel-0.7.3/lib
-  41. /var/lib/gems/2.5.0/gems/tty-color-0.5.0/lib
-  42. /var/lib/gems/2.5.0/gems/parallel-1.19.1/lib
-  43. /var/lib/gems/2.5.0/gems/nanoc-cli-4.11.14/lib
-  44. /var/lib/gems/2.5.0/gems/nanoc-core-4.11.14/lib
-  45. /var/lib/gems/2.5.0/gems/zeitwerk-2.2.2/lib
-  46. /var/lib/gems/2.5.0/gems/tty-platform-0.2.1/lib
-  47. /var/lib/gems/2.5.0/gems/tomlrb-1.2.9/lib
-  48. /var/lib/gems/2.5.0/gems/slow_enumerator_tools-1.1.0/lib
-  49. /var/lib/gems/2.5.0/gems/json_schema-0.20.8/lib
-  50. /var/lib/gems/2.5.0/gems/hamster-3.0.0/lib
-  51. /var/lib/gems/2.5.0/gems/guard-livereload-2.5.2/lib
-  52. /var/lib/gems/2.5.0/gems/guard-compat-1.2.1/lib
-  53. /var/lib/gems/2.5.0/gems/guard-2.16.1/lib
-  54. /var/lib/gems/2.5.0/gems/thor-1.0.1/lib
-  55. /var/lib/gems/2.5.0/gems/pry-0.12.2/lib
-  56. /var/lib/gems/2.5.0/gems/method_source-0.9.2/lib
-  57. /var/lib/gems/2.5.0/gems/notiffany-0.1.3/lib
-  58. /var/lib/gems/2.5.0/gems/shellany-0.0.1/lib
-  59. /var/lib/gems/2.5.0/gems/nenv-0.3.0/lib
-  60. /var/lib/gems/2.5.0/gems/lumberjack-1.0.13/lib
-  61. /var/lib/gems/2.5.0/gems/listen-3.2.1/lib
-  62. /var/lib/gems/2.5.0/gems/rb-inotify-0.10.1/lib
-  63. /var/lib/gems/2.5.0/gems/rb-fsevent-0.10.3/lib
-  64. /var/lib/gems/2.5.0/gems/formatador-0.2.5/lib
-  65. /var/lib/gems/2.5.0/gems/ffi-1.11.3/lib
-  66. /var/lib/gems/2.5.0/extensions/x86_64-linux/2.5.0/ffi-1.11.3
-  67. /var/lib/gems/2.5.0/gems/execjs-2.7.0/lib
-  68. /var/lib/gems/2.5.0/gems/equatable-0.6.1/lib
-  69. /var/lib/gems/2.5.0/gems/em-websocket-0.5.1/lib
-  70. /var/lib/gems/2.5.0/gems/http_parser.rb-0.6.0/lib
-  71. /var/lib/gems/2.5.0/extensions/x86_64-linux/2.5.0/http_parser.rb-0.6.0
-  72. /var/lib/gems/2.5.0/gems/eventmachine-1.2.7/lib
-  73. /var/lib/gems/2.5.0/extensions/x86_64-linux/2.5.0/eventmachine-1.2.7
-  74. /var/lib/gems/2.5.0/gems/diff-lcs-1.3/lib
-  75. /var/lib/gems/2.5.0/gems/ddplugin-1.0.2/lib
-  76. /var/lib/gems/2.5.0/gems/ddmemoize-1.0.0/lib
-  77. /var/lib/gems/2.5.0/gems/ref-2.0.0/lib
-  78. /var/lib/gems/2.5.0/gems/ddmetrics-1.0.1/lib
-  79. /var/lib/gems/2.5.0/gems/daemons-1.3.1/lib
-  80. /var/lib/gems/2.5.0/gems/cri-2.15.9/lib
-  81. /var/lib/gems/2.5.0/gems/concurrent-ruby-1.1.5/lib
-  82. /var/lib/gems/2.5.0/gems/colored-1.2/lib
-  83. /var/lib/gems/2.5.0/gems/coderay-1.1.2/lib
-  84. /var/lib/gems/2.5.0/gems/bibtex-ruby-5.0.1/lib
-  85. /var/lib/gems/2.5.0/gems/latex-decode-0.3.1/lib
-  86. /var/lib/gems/2.5.0/gems/bibmarkdown-2.0.0/lib
-  87. /var/lib/gems/2.5.0/gems/csl-styles-1.0.1.9/lib
-  88. /var/lib/gems/2.5.0/gems/citeproc-ruby-1.1.10/lib
-  89. /var/lib/gems/2.5.0/gems/csl-1.5.0/lib
-  90. /var/lib/gems/2.5.0/gems/citeproc-1.0.9/lib
-  91. /var/lib/gems/2.5.0/gems/namae-1.0.1/lib
-  92. /var/lib/gems/2.5.0/gems/addressable-2.7.0/lib
-  93. /var/lib/gems/2.5.0/gems/public_suffix-4.0.2/lib
-  94. /var/lib/gems/2.5.0/gems/activesupport-3.1.12/lib
-  95. /var/lib/gems/2.5.0/gems/multi_json-1.14.1/lib
-  96. /usr/local/lib/site_ruby/2.5.0
-  97. /usr/local/lib/x86_64-linux-gnu/site_ruby
-  98. /usr/local/lib/site_ruby
-  99. /usr/lib/ruby/vendor_ruby/2.5.0
-  100. /usr/lib/x86_64-linux-gnu/ruby/vendor_ruby/2.5.0
+  0. /usr/lib/ruby/gems/2.6.0/gems/http_parser.rb-0.6.0/lib
+  1. /usr/lib/ruby/gems/2.6.0/gems/em-websocket-0.5.1/lib/../lib
+  2. /home/hdelva/.gem/ruby/2.6.0/gems/ref-2.0.0/lib
+  3. /home/hdelva/.gem/ruby/2.6.0/gems/bundler-2.0.2/lib
+  4. /usr/lib/ruby/gems/2.6.0/gems/w3c_validators-1.3.4/lib
+  5. /usr/lib/ruby/gems/2.6.0/gems/unicode_utils-1.4.0/lib
+  6. /usr/lib/ruby/gems/2.6.0/gems/thin-1.7.2/lib
+  7. /usr/lib/ruby/gems/2.6.0/extensions/x86_64-linux/2.6.0/thin-1.7.2
+  8. /usr/lib/ruby/gems/2.6.0/gems/serve-1.5.1/lib
+  9. /usr/lib/ruby/gems/2.6.0/gems/tzinfo-2.0.1/lib
+  10. /usr/lib/ruby/gems/2.6.0/gems/tilt-1.4.1/lib
+  11. /usr/lib/ruby/gems/2.6.0/gems/scholarmarkdown-2.7.0/lib
+  12. /home/hdelva/.gem/ruby/2.6.0/gems/therubyracer-0.12.3/lib
+  13. /home/hdelva/.gem/ruby/2.6.0/gems/therubyracer-0.12.3/ext
+  14. /home/hdelva/.gem/ruby/2.6.0/extensions/x86_64-linux/2.6.0/therubyracer-0.12.3
+  15. /usr/lib/ruby/gems/2.6.0/gems/sass-3.7.4/lib
+  16. /usr/lib/ruby/gems/2.6.0/gems/sass-listen-4.0.0/lib
+  17. /usr/lib/ruby/gems/2.6.0/gems/rubypants-0.7.0/lib
+  18. /usr/lib/ruby/gems/2.6.0/gems/rb-readline-0.5.5/lib
+  19. /usr/lib/ruby/gems/2.6.0/gems/rack-test-0.8.3/lib
+  20. /usr/lib/ruby/gems/2.6.0/gems/rack-livereload-0.3.17/lib
+  21. /usr/lib/ruby/gems/2.6.0/gems/rack-1.6.12/lib
+  22. /usr/lib/ruby/gems/2.6.0/gems/nokogiri-1.10.7/lib
+  23. /usr/lib/ruby/gems/2.6.0/extensions/x86_64-linux/2.6.0/nokogiri-1.10.7
+  24. /usr/lib/ruby/gems/2.6.0/gems/mini_portile2-2.4.0/lib
+  25. /home/hdelva/.gem/ruby/2.6.0/gems/libv8-3.16.14.19-x86_64-linux/lib
+  26. /home/hdelva/.gem/ruby/2.6.0/gems/libv8-3.16.14.19-x86_64-linux/ext
+  27. /usr/lib/ruby/gems/2.6.0/gems/kramdown-math-sskatex-1.0.0/lib
+  28. /home/hdelva/.gem/ruby/2.6.0/gems/sskatex-0.9.39/lib
+  29. /usr/lib/ruby/gems/2.6.0/gems/kramdown-2.1.0/lib
+  30. /usr/lib/ruby/gems/2.6.0/gems/katex-0.6.0/lib
+  31. /usr/lib/ruby/gems/2.6.0/gems/json-2.3.0/lib
+  32. /usr/lib/ruby/gems/2.6.0/extensions/x86_64-linux/2.6.0/json-2.3.0
+  33. /usr/lib/ruby/gems/2.6.0/gems/i18n-1.0.1/lib
+  34. /usr/lib/ruby/gems/2.6.0/gems/guard-process-1.2.1/lib
+  35. /usr/lib/ruby/gems/2.6.0/gems/spoon-0.0.6/lib
+  36. /usr/lib/ruby/gems/2.6.0/gems/guard-nanoc-2.1.7/lib
+  37. /usr/lib/ruby/gems/2.6.0/gems/nanoc-4.11.14/lib
+  38. /usr/lib/ruby/gems/2.6.0/gems/tty-which-0.4.1/lib
+  39. /usr/lib/ruby/gems/2.6.0/gems/tty-command-0.9.0/lib
+  40. /usr/lib/ruby/gems/2.6.0/gems/pastel-0.7.3/lib
+  41. /usr/lib/ruby/gems/2.6.0/gems/tty-color-0.5.0/lib
+  42. /usr/lib/ruby/gems/2.6.0/gems/parallel-1.19.1/lib
+  43. /usr/lib/ruby/gems/2.6.0/gems/nanoc-cli-4.11.14/lib
+  44. /usr/lib/ruby/gems/2.6.0/gems/nanoc-core-4.11.14/lib
+  45. /usr/lib/ruby/gems/2.6.0/gems/zeitwerk-2.2.2/lib
+  46. /usr/lib/ruby/gems/2.6.0/gems/tty-platform-0.2.1/lib
+  47. /usr/lib/ruby/gems/2.6.0/gems/tomlrb-1.2.9/lib
+  48. /usr/lib/ruby/gems/2.6.0/gems/slow_enumerator_tools-1.1.0/lib
+  49. /usr/lib/ruby/gems/2.6.0/gems/json_schema-0.20.8/lib
+  50. /usr/lib/ruby/gems/2.6.0/gems/hamster-3.0.0/lib
+  51. /usr/lib/ruby/gems/2.6.0/gems/guard-livereload-2.5.2/lib
+  52. /usr/lib/ruby/gems/2.6.0/gems/guard-compat-1.2.1/lib
+  53. /usr/lib/ruby/gems/2.6.0/gems/guard-2.16.1/lib
+  54. /usr/lib/ruby/gems/2.6.0/gems/thor-1.0.1/lib
+  55. /usr/lib/ruby/gems/2.6.0/gems/pry-0.12.2/lib
+  56. /usr/lib/ruby/gems/2.6.0/gems/method_source-0.9.2/lib
+  57. /usr/lib/ruby/gems/2.6.0/gems/notiffany-0.1.3/lib
+  58. /usr/lib/ruby/gems/2.6.0/gems/shellany-0.0.1/lib
+  59. /usr/lib/ruby/gems/2.6.0/gems/nenv-0.3.0/lib
+  60. /usr/lib/ruby/gems/2.6.0/gems/lumberjack-1.0.13/lib
+  61. /usr/lib/ruby/gems/2.6.0/gems/listen-3.2.1/lib
+  62. /usr/lib/ruby/gems/2.6.0/gems/rb-inotify-0.10.1/lib
+  63. /usr/lib/ruby/gems/2.6.0/gems/rb-fsevent-0.10.3/lib
+  64. /usr/lib/ruby/gems/2.6.0/gems/formatador-0.2.5/lib
+  65. /usr/lib/ruby/gems/2.6.0/gems/ffi-1.11.3/lib
+  66. /usr/lib/ruby/gems/2.6.0/extensions/x86_64-linux/2.6.0/ffi-1.11.3
+  67. /home/hdelva/.gem/ruby/2.6.0/gems/execjs-2.7.0/lib
+  68. /usr/lib/ruby/gems/2.6.0/gems/equatable-0.6.1/lib
+  69. /usr/lib/ruby/gems/2.6.0/gems/em-websocket-0.5.1/lib
+  70. /usr/lib/ruby/gems/2.6.0/gems/http_parser.rb-0.6.0/lib
+  71. /usr/lib/ruby/gems/2.6.0/extensions/x86_64-linux/2.6.0/http_parser.rb-0.6.0
+  72. /usr/lib/ruby/gems/2.6.0/gems/eventmachine-1.2.7/lib
+  73. /usr/lib/ruby/gems/2.6.0/extensions/x86_64-linux/2.6.0/eventmachine-1.2.7
+  74. /usr/lib/ruby/gems/2.6.0/gems/diff-lcs-1.3/lib
+  75. /usr/lib/ruby/gems/2.6.0/gems/ddplugin-1.0.2/lib
+  76. /usr/lib/ruby/gems/2.6.0/gems/ddmemoize-1.0.0/lib
+  77. /home/hdelva/.gem/ruby/2.6.0/gems/ref-2.0.0/lib
+  78. /usr/lib/ruby/gems/2.6.0/gems/ddmetrics-1.0.1/lib
+  79. /usr/lib/ruby/gems/2.6.0/gems/daemons-1.3.1/lib
+  80. /usr/lib/ruby/gems/2.6.0/gems/cri-2.15.9/lib
+  81. /home/hdelva/.gem/ruby/2.6.0/gems/concurrent-ruby-1.1.5/lib
+  82. /usr/lib/ruby/gems/2.6.0/gems/colored-1.2/lib
+  83. /usr/lib/ruby/gems/2.6.0/gems/coderay-1.1.2/lib
+  84. /usr/lib/ruby/gems/2.6.0/gems/bibtex-ruby-5.0.1/lib
+  85. /home/hdelva/.gem/ruby/2.6.0/gems/latex-decode-0.3.1/lib
+  86. /home/hdelva/.gem/ruby/2.6.0/gems/bibmarkdown-2.0.0/lib
+  87. /home/hdelva/.gem/ruby/2.6.0/gems/csl-styles-1.0.1.9/lib
+  88. /home/hdelva/.gem/ruby/2.6.0/gems/citeproc-ruby-1.1.10/lib
+  89. /home/hdelva/.gem/ruby/2.6.0/gems/csl-1.5.0/lib
+  90. /home/hdelva/.gem/ruby/2.6.0/gems/citeproc-1.0.9/lib
+  91. /home/hdelva/.gem/ruby/2.6.0/gems/namae-1.0.1/lib
+  92. /usr/lib/ruby/gems/2.6.0/gems/addressable-2.7.0/lib
+  93. /usr/lib/ruby/gems/2.6.0/gems/public_suffix-4.0.2/lib
+  94. /usr/lib/ruby/gems/2.6.0/gems/activesupport-3.1.12/lib
+  95. /usr/lib/ruby/gems/2.6.0/gems/multi_json-1.14.1/lib
+  96. /usr/lib/ruby/site_ruby/2.6.0
+  97. /usr/lib/ruby/site_ruby/2.6.0/x86_64-linux
+  98. /usr/lib/ruby/site_ruby
+  99. /usr/lib/ruby/vendor_ruby/2.6.0
+  100. /usr/lib/ruby/vendor_ruby/2.6.0/x86_64-linux
   101. /usr/lib/ruby/vendor_ruby
-  102. /usr/lib/ruby/2.5.0
-  103. /usr/lib/x86_64-linux-gnu/ruby/2.5.0
+  102. /usr/lib/ruby/2.6.0
+  103. /usr/lib/ruby/2.6.0/x86_64-linux

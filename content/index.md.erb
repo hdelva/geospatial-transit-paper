@@ -1,14 +1,17 @@
 ---
-title: "My Awesome Article"
+title: "Geospatial fragmentation of open transit data"
 ---
 <header markdown="1">
 # <%= @item[:title] %>
 
 {:#authors}
-- <%= person 'John Doe', 'http://www.example.org/', 'http://www.example.org/#me' %>
+
+<!--- <%= person 'John Doe', 'http://www.example.org/', 'http://www.example.org/#me' %> 
 
 {:#affiliations}
 - {:#myaffiliation} Awesome Inc.
+
+-->
 
 <%= section 'abstract' %>
 </header>
@@ -16,6 +19,10 @@ title: "My Awesome Article"
 <main>
   <!-- Add sections by specifying their file name, excluding the '.md' suffix. -->
   <%= section 'introduction' %>
+  <%= section 'related' %>
+  <%= section 'method' %>
+  <%= section 'evaluation' %>
+  <%= section 'conclusion' %>
 </main>
 
 <footer></footer>

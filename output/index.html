@@ -2,28 +2,27 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
   <meta charset="utf-8" />
-  <title property="foaf:name schema:name">My Awesome Article</title>
+  <title property="foaf:name schema:name">Geospatial fragmentation of open transit data</title>
   <link rel="stylesheet" media="screen" href="styles/screen.css" />
   <link rel="stylesheet" media="print"  href="styles/print.css" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   
-  <meta name="citation_title" content="My Awesome Article">
+  <meta name="citation_title" content="Geospatial fragmentation of open transit data">
   <meta name="citation_author" content="John Doe" />
   
-  <meta name="citation_publication_date" content="2020/01/02" />
+  <meta name="citation_publication_date" content="2020/01/06" />
 </head>
 
 <body prefix="dctypes: http://purl.org/dc/dcmitype/ pimspace: http://www.w3.org/ns/pim/space# rsa: http://www.w3.org/ns/auth/rsa# cert: http://www.w3.org/ns/auth/cert# wgs: http://www.w3.org/2003/01/geo/wgs84_pos# biblio: http://purl.org/net/biblio# bibo: http://purl.org/ontology/bibo/ book: http://purl.org/NET/book/vocab# ov: http://open.vocab.org/terms/ doap: http://usefulinc.com/ns/doap# dbr: http://dbpedia.org/resource/ dbp: http://dbpedia.org/property/ sio: http://semanticscience.org/resource/ opmw: http://www.opmw.org/ontology/ deo: http://purl.org/spar/deo/ doco: http://purl.org/spar/doco/ cito: http://purl.org/spar/cito/ fabio: http://purl.org/spar/fabio/ solid: http://www.w3.org/ns/solid/terms# acl: http://www.w3.org/ns/auth/acl# dio: https://w3id.org/dio# lsc: http://linkedscience.org/lsc/ns#" typeof="schema:CreativeWork sioc:Post prov:Entity lsc:Research">
   <header>
-  <h1 id="my-awesome-article">My Awesome Article</h1>
+  <h1 id="geospatial-fragmentation-of-open-transit-data">Geospatial fragmentation of open transit data</h1>
 
-  <ul id="authors">
-    <li><a rev="lsc:participatesIn" property="foaf:maker schema:creator schema:author schema:publisher" href="http://www.example.org/" typeof="foaf:Person schema:Person" resource="http://www.example.org/#me">John Doe</a></li>
-  </ul>
+  <!--- <a rev="lsc:participatesIn" property="foaf:maker schema:creator schema:author schema:publisher" href="http://www.example.org/" typeof="foaf:Person schema:Person" resource="http://www.example.org/#me">John Doe</a> 
 
-  <ul id="affiliations">
-    <li id="myaffiliation">Awesome Inc.</li>
-  </ul>
+{:#affiliations}
+- {:#myaffiliation} Awesome Inc.
+
+-->
 
   <section id="abstract" inlist="" rel="schema:hasPart" resource="#abstract">
 <div datatype="rdf:HTML" property="schema:description">
@@ -60,6 +59,202 @@ Consequently, this increases the likelihood that such a publishing scheme may be
       <p>Another use case for open transit data is route planning. The ideal route is subjective; a reasonable walking distance will differ from person to person, and will even depend on a person’s mood. Contemporary route planning services preprocess data to provide better query time performance <span class="references">[<a href="#ref-4">4</a>, <a href="#ref-5">5</a>, <a href="#ref-6">6</a>]</span>, but this preprocessing also restricts the types of queries that can be answered. For example, an algorithm that reuses precomputed shortest paths between stops will not be able to give you the most scenic path – unless those are precomputed as well. But what if someone could use their own device to calculate their own personalized routes instead of using a service? They could tweak journeys until they find exactly what they are looking for, without putting an unreasonable strain on a route planning service. This approach obviously comes with its own challenges, and ingesting data is again one of them. Downloading the entire dataset to plan a route from one adjacent city to another will make the process too slow to be useful.</p>
 
       <p>These examples show that the way data is published can restrict the ways it is used. And since the goal of open data is to let people use the data how they wish, the ideal data publishing scheme should not impose such restrictions.</p>
+    </div>
+</section>
+
+  <section id="related-work" inlist="" rel="schema:hasPart" resource="#related-work">
+<div datatype="rdf:HTML" property="schema:description">
+      <h2 property="schema:name">Related work</h2>
+
+      <h3 id="linked-data-fragments">Linked Data Fragments</h3>
+
+      <p>Share the load</p>
+
+      <h3 id="linked-connections">Linked Connections</h3>
+
+      <p>Public transit schedules as LDF</p>
+
+      <h3 id="partitioning-public-transit-networks">Partitioning Public Transit Networks</h3>
+
+      <ul>
+        <li>
+          <ul>
+            <li>
+              <p>“For accelerating route planning in road networks, methods based on partitioning [14,15,19,23,24,30,31] turned out to be the most practical ones”</p>
+            </li>
+            <li>
+              <ul>
+                <li>Exploiting topology, largely static data</li>
+              </ul>
+            </li>
+            <li>
+              <p>Mostly done for the purpose of speeding up route planning</p>
+            </li>
+            <li>
+              <p>Scalable Transfer Patterns</p>
+            </li>
+            <li>
+              <ul>
+                <li>http:/​/​ad-publications.informatik.uni-freiburg.de/ALENEX_scalable_tp_BHS_2016.pdf</li>
+                <li>Uses conventional graph clustering algorithms to create sets of stops</li>
+                <li>k-Means clustering:
+Some  methods  for  classification and  analysis  of  multivariate  observations.</li>
+                <li>Merge-based clustering:
+Creating graph partitions for fast optimum route planning.</li>
+                <li>METIS:
+A fast and high quality multilevel scheme for partitioning irregular graphs.</li>
+                <li>PUNCH
+Graph partitioning with natural cuts.</li>
+              </ul>
+            </li>
+            <li>
+              <p>CSAccel</p>
+            </li>
+            <li>
+              <ul>
+                <li>
+                  <p>https:/​/​arxiv.org/pdf/1703.05997.pdf</p>
+                </li>
+                <li>
+                  <p>Uses KaFFPa:</p>
+                </li>
+                <li>
+                  <ul>
+                    <li>Think Locally, Act Globally: Highly Balanced Graph Partitioning</li>
+                  </ul>
+                </li>
+                <li>Found it superior to METIS</li>
+              </ul>
+            </li>
+            <li>
+              <p>HypRAPTOR</p>
+            </li>
+            <li>
+              <ul>
+                <li>http:/​/​drops.dagstuhl.de/opus/volltexte/2017/7896/pdf/OASIcs-ATMOS-2017-8.pdf</li>
+                <li>Uses metis as well</li>
+                <li>But uses it to create sets of trips</li>
+              </ul>
+            </li>
+            <li>
+              <p>Focus so far has been on being robust to changes in the timetable, such as working around train delays.</p>
+            </li>
+            <li>New stops, or trips, will not be used until the preprocessed is repeated.</li>
+          </ul>
+        </li>
+      </ul>
+
+      <h3 id="voronoi-partinioning">Voronoi Partinioning</h3>
+
+      <p>yes</p>
+    </div>
+</section>
+
+  <section id="method" inlist="" rel="schema:hasPart" resource="#method">
+<div datatype="rdf:HTML" property="schema:description">
+      <h2 property="schema:name">Method</h2>
+
+      <p>separation of concerns</p>
+
+      <p>data publishers are not necessarily data owners</p>
+
+      <ul>
+        <li>data publisher may be hired by the data owner to publically disclose the data</li>
+        <li>data publisher might republish data as a third party to meet specific requirements
+          <ul>
+            <li>some applications do not require fragmentations at all</li>
+            <li>some applications might benefit from specific fragmentations (for example, by trip instead of by stop)</li>
+          </ul>
+        </li>
+      </ul>
+
+      <p>regardless of the data publisher’s role – their service has to be maintainable to keep it cost-efficient</p>
+
+      <ul>
+        <li>the world is not static, it keeps evolving</li>
+        <li>data published based on the real world has to evolve as well</li>
+        <li>if the transit operator adds a stop, the published connections should accommodate this with as little friction as possible</li>
+      </ul>
+
+      <p>existing work has focused on distributing stops, or trips, into discrete sets</p>
+
+      <ul>
+        <li>problem with this approach is that the clustering has to be updated to include new stops, or risk going out of sync with the source data</li>
+        <li>we propose to partition the physical space with Voronoi</li>
+        <li>the resulting partitions are published separately as their own resource, described as WKT literals</li>
+        <li>connections server can ingest any partition description, fragment the source data accordingly, and generate a hydra:PartialCollectionView per partition, the tree ontology is used to describe which partial view corresponds to which geospatial partition</li>
+      </ul>
+
+      <hr />
+
+      <p>clustering</p>
+
+      <ul>
+        <li>kmeans with voronoi
+          <ul>
+            <li>simple chunks of equal size</li>
+          </ul>
+        </li>
+        <li>prio
+          <ul>
+            <li>simple chunks of varying size</li>
+          </ul>
+        </li>
+        <li>merged
+          <ul>
+            <li>irregular shapes of varying size</li>
+          </ul>
+        </li>
+        <li>metis
+          <ul>
+            <li>irregular shapes of equal size</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+</section>
+
+  <section id="evaluation" inlist="" rel="schema:hasPart" resource="#evaluation">
+<div datatype="rdf:HTML" property="schema:description">
+      <h2 property="schema:name">Evaluation</h2>
+
+      <p>Server and client are two machines on the same local network, with a default 20 ms added per request</p>
+
+      <p>No caching to isolate the impact of the clustering methods, cacheability of files is simulated separately</p>
+
+      <h3 id="results">results</h3>
+
+      <p>Table of all the results, raw values</p>
+
+      <h3 id="impact-of-clustering-method">Impact of clustering method</h3>
+
+      <p>medians are comparable, with a complex method such as metis performing worse than simple kmeans</p>
+
+      <p>prio has more consistent results, lower 75 perc percentile</p>
+
+      <h3 id="impact-of-number-of-clusters">Impact of number of clusters</h3>
+
+      <p>Less is better</p>
+
+      <h3 id="cacheability">Cacheability</h3>
+
+      <p>no considerable change in total data size, so a cache that is big enough to cache the original data can also cache the partitioned data</p>
+
+      <p>One thing that does change is how fast the cache will fill up - you need at least one request per fragment to fill up a web cache.</p>
+
+      <p>The different partitioning schemes will also diverge when the cache is too small to contain all the data. Filling a cache with fine-grained data will take longer, but the cached data is more likely to be relevant. For example, a purely temporal fragmentation strategy will contain data for the entire operator’s service area, even if one region is significantly less often requested.</p>
+
+      <p>To evaluate how fast a cache is filled we replay a small amount of requests on an empty cache, and do this many times. To evaluate how often relevant data is evicted from the cache we do the same, but on an already warmed up cache.</p>
+
+      <p><img src="./img/cold_cache.svg" width="100%" /></p>
+
+      <p><img src="./img/warm_cache.svg" width="100%" /></p>
+    </div>
+</section>
+
+  <section>
+<div datatype="rdf:HTML" property="schema:description">
+
     </div>
 </section>
 
