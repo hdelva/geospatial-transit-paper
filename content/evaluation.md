@@ -4,19 +4,15 @@ Server and client are two machines on the same local network, with a default 20 
 
 No caching to isolate the impact of the clustering methods, cacheability of files is simulated separately
 
-### results
+<figure>
+    <img src="./img/elapsed_boxen.svg" width="100%">
+    <figcaption>elapsed</figcaption>
+</figure>
 
-Table of all the results, raw values
-
-### Impact of clustering method
-
-medians are comparable, with a complex method such as metis performing worse than simple kmeans
-
-prio has more consistent results, lower 75 perc percentile
-
-### Impact of number of clusters
-
-Less is better
+<figure>
+    <img src="./img/downloaded_boxen.svg" width="100%">
+    <figcaption>downloaded</figcaption>
+</figure>
 
 ### Cacheability
 
@@ -28,6 +24,16 @@ The different partitioning schemes will also diverge when the cache is too small
 
 To evaluate how fast a cache is filled we replay a small amount of requests on an empty cache, and do this many times. To evaluate how often relevant data is evicted from the cache we do the same, but on an already warmed up cache.
 
-<img src="./img/cold_cache.svg" width="100%">
+<figure>
+    <img src="./img/cold_cache.svg" width="100%">
+    <figcaption>cold</figcaption>
+</figure>
 
-<img src="./img/warm_cache.svg" width="100%">
+
+
+
+
+<figure>
+    <img src="./img/warm_cache.svg" width="100%">
+    <figcaption>warm</figcaption>
+</figure>

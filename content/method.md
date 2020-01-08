@@ -28,6 +28,17 @@ clustering
 
 Is it even desirable to use highly balanced clusters? Does that reflect how the data is used? 
 
+<figure style="display:flex; flex-wrap:wrap">
+	<img src="./img/kmeans_8.svg" width="399px" style="min-width: 50%; flex:1; border: none; box-shadow: none;"/>
+    <img src="./img/metis_8.svg" width="399px" style="min-width: 50%; flex:1; border: none; box-shadow: none;">
+    <br>
+    <img src="./img/prio_8.svg" width="399px" style="min-width: 50%; flex:1; border: none; box-shadow: none;">
+	<img src="./img/merged_8.svg" width="399px" style="min-width: 50%; flex:1; border: none; box-shadow: none;">
+    <figcaption>yes</figcaption>
+</figure>
+
+
+
 * kmeans with voronoi
   * simple chunks of equal size
 * prio
