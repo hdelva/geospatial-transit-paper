@@ -26,6 +26,8 @@ existing work has focused on distributing stops, or trips, into discrete sets
 
 clustering
 
+Is it even desirable to use highly balanced clusters? Does that reflect how the data is used? 
+
 * kmeans with voronoi
   * simple chunks of equal size
 * prio

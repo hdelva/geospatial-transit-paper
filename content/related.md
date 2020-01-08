@@ -1,54 +1,24 @@
 ## Related work
 
+### Linked Data Fragments
+
+Tim Berners-Lee outlined four principles of [Linked Data](cite:cites berners2006linked): 1) use URIs as names for things, 2) use HTTP URIs so that people can look up those names, 3) when someone looks up a URI, provide useful information using standards such as RDF, and 4) include links to other URIs so that they can discover more things. In the conceptual framework of [Linked Data Fragments](cite:cites verborgh2014querying), this is just one interface to access Linked Data. You could also publish the data as one large data dump, or provide a querying API on top of the data. What all these interfaces have in common is that they expose a _fragment_ of the entire dataset, so they can all be considered Linked Data Fragments. Data dumps and query APIs are the two extremes on the [Linked Data Fragments axis](cite:cites verborgh2014querying). This axis serves illustrates the trade-offs between different methods of publishing Linked Data on the Web. Data dumps put the data processing burden on the client's side, but allow the most flexibility for clients. Query APIs on the other hand put the processing burden on the server side but always restrict, in some way, the way the data can be used. 
+
 ### Mobility Data
 
 The General Transit Feed Specification (GTFS) is, at the time of writing, the de facto standard for publishing public transit schedules. A single feed is a combination of 6 to 13 CSV files, compressed into a single ZIP archive. Its core data elements are stops, routes, trips, and stop times. Stops are places where vehicles pick up or drop off riders, routes are two or more stops that form a public transit line, trips correspond to a physical vehicle that follows a route during a specific time period, and stop times indicate when a trip passes by a stop. This data is not only useful for route planning applications, other applications include [embedding timetables in mobile applications, data visualization; accessibility analysis, and planning analysis](cite:citesAsEvidence antrim2013many).
 
-Data dumps and query APIs are the two extremes on the [Linked Data Fragments axis](cite:cites verborgh2014querying). This axis serves as a conceptual framework to discuss trade-odds between different methods of publishing Linked Data on the Web. Data dumps put the data processing burden on the client's side, but a client that can cope with this burden is free to process it however they want. Query APIs on the other hand put the processing burden on the server side but always restrict, in some way, the way the data can be used. The [Linked Connections specification](cite:cites colpaert2015intermodal) defines a way to publish transit data that falls somewhere in between these two extremes.
-
-Public transit schedules as LDF
+The [Linked Connections specification](cite:cites colpaert2015intermodal) defines a way to publish transit data that falls somewhere in the middle of the Linked Data Fragments axis. Connections are defined as vehicles going from one stop to another without an intermediate halt. These connections are then ordered by departure time, fragmented into documents, and are then published over HTTP. Clients can use the semantics embedded in each fragment to solve their own queries. This, combined with the fact that each fragment is easily cacheable, make Linked Connections servers very scalable [](cite:citesAsEvidence colpaert2015intermodal). 
 
 ### Partitioning Public Transit Networks
 
-- - “For accelerating route planning in road networks, methods based on partitioning [14,15,19,23,24,30,31] turned out to be the most practical ones”
+Researchers in the field of route planning have noted that while methods based on partitioning have been successful for accelerating queries on road networks, adapting those methods to public transit networks is [harder than expected](cite:citesAsEvidence berger2009accelerating, bauer2011experimental). One of the main differences is that road networks are, for the most part, topological networks. Public transit networks on the other hand are also inherently time-dependent, while road networks. On top of that, it is not even clear _what_ exactly needs to be partitioned as different algorithms can require wildly [different data models](cite:cites delling2017faster). 
 
-  - - Exploiting topology, largely static data
+The [Scalable Transfer Patterns](cite:cites bast2016scalable) algorithm that aims to greatly reduce preprocessing times of the original [Transfer Patterns](cite:cites bast2010fast) algorithm. The authors compared 4 different techniques to partition stops into clusters of roughly equal size: 1) k-Means using the stops' geographical locations, 2) a merge-based clustering with a utility function that punishes big partitions and rewards pairs of partitions with high edge weights between them , 3) a general-purpose graph clustering algorithm called [METIS](cite:cites karypis1998fast), and 4) a road partitioning method called [PUNCH](cite:cites delling2011graph). They found that k-Means, despite being completely oblivious to the network structure outperformed, outperformed both METIS and PUNCH while the merge-based approach performed the best of all. [HypRAPTOR](cite:cites delling2017faster) is another route planning algorithm that uses METIS to partition the network graph, but it clusters trips instead of stops. 
 
-  - Mostly done for the purpose of speeding up route planning
+### Voronoi Diagrams
 
-  - Scalable Transfer Patterns
+Voronoi diagrams are one of the most fundamental data structures in [computational geometry](cite:citesAsEvidence aurenhammer1991voronoi). Although they can be applied to any metric space, we only consider Euclidean spaces in this paper for the sake of simplicity. Given a set of seed points in a Euclidean space, a Voronoi diagram partitions that space into regions so that each region contains exactly one seed point, and every point in a region is closer to that region's seed point than to any other region's. Formally this means that for a given Euclidean space $$X$$ with distance function $$d$$, and a set of seed points $$P \subset X$$, each point $$p_i \in P$$ yields a corresponding Voronoi region $$R_i \subseteq X$$ where 
 
-  - - http://ad-publications.informatik.uni-freiburg.de/ALENEX_scalable_tp_BHS_2016.pdf
-    - Uses conventional graph clustering algorithms to create sets of stops
-    - k-Means clustering:
-      Some  methods  for  classification and  analysis  of  multivariate  observations.
-    - Merge-based clustering:
-      Creating graph partitions for fast optimum route planning.
-    - METIS:
-      A fast and high quality multilevel scheme for partitioning irregular graphs.
-    - PUNCH
-      Graph partitioning with natural cuts.
+$$ R_i = \{ x \in X \mid d(x, p_i) \leq d(x, p_j) \text{ for all } i \neq j  \}$$
 
-  - CSAccel 
-
-  - - https://arxiv.org/pdf/1703.05997.pdf
-
-    - Uses KaFFPa:
-
-    - - Think Locally, Act Globally: Highly Balanced Graph Partitioning
-
-    - Found it superior to METIS
-
-  - HypRAPTOR
-
-  - - http://drops.dagstuhl.de/opus/volltexte/2017/7896/pdf/OASIcs-ATMOS-2017-8.pdf
-    - Uses metis as well
-    - But uses it to create sets of trips
-
-  - Focus so far has been on being robust to changes in the timetable, such as working around train delays.
-
-  - New stops, or trips, will not be used until the preprocessed is repeated.
-
-### Voronoi Partinioning
-
-yes

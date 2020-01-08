@@ -2,18 +2,18 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
   <meta charset="utf-8" />
-  <title property="foaf:name schema:name">Geospatial fragmentation of open transit data</title>
-  <link rel="stylesheet" media="screen" href="styles/screen.css" />
-  <link rel="stylesheet" media="print"  href="styles/print.css" />
+  <title>Geospatial fragmentation of open transit data</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  
-  <meta name="citation_title" content="Geospatial fragmentation of open transit data">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css" integrity="sha384-yFRtMMDnQtDRO8rLpMIKrtPCD5jdktao2TV19YiZYWMDkUR5GQZR/NOVTdquEx1j" crossorigin="anonymous">
+       <script src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.js" integrity="sha384-9Nhn55MVVN0/4OFx7EE5kpFBPsEMZxKTCnA+4fqDmg12eCTqGi6+BB2LjY8brQxJ" crossorigin="anonymous"></script>
+         <link rel="stylesheet" media="screen" href="styles/screen.css" />
+  <link rel="stylesheet" media="print"  href="styles/print.css" />  <meta name="citation_title" content="Geospatial fragmentation of open transit data">
   <meta name="citation_author" content="John Doe" />
   
-  <meta name="citation_publication_date" content="2020/01/07" />
+  <meta name="citation_publication_date" content="2020/01/08" />
 </head>
 
-<body prefix="dctypes: http://purl.org/dc/dcmitype/ pimspace: http://www.w3.org/ns/pim/space# rsa: http://www.w3.org/ns/auth/rsa# cert: http://www.w3.org/ns/auth/cert# wgs: http://www.w3.org/2003/01/geo/wgs84_pos# biblio: http://purl.org/net/biblio# bibo: http://purl.org/ontology/bibo/ book: http://purl.org/NET/book/vocab# ov: http://open.vocab.org/terms/ doap: http://usefulinc.com/ns/doap# dbr: http://dbpedia.org/resource/ dbp: http://dbpedia.org/property/ sio: http://semanticscience.org/resource/ opmw: http://www.opmw.org/ontology/ deo: http://purl.org/spar/deo/ doco: http://purl.org/spar/doco/ cito: http://purl.org/spar/cito/ fabio: http://purl.org/spar/fabio/ solid: http://www.w3.org/ns/solid/terms# acl: http://www.w3.org/ns/auth/acl# dio: https://w3id.org/dio# lsc: http://linkedscience.org/lsc/ns#" typeof="schema:CreativeWork sioc:Post prov:Entity lsc:Research">
+<body prefix="rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns# rdfs: http://www.w3.org/2000/01/rdf-schema# owl: http://www.w3.org/2002/07/owl# xsd: http://www.w3.org/2001/XMLSchema# dcterms: http://purl.org/dc/terms/ dctypes: http://purl.org/dc/dcmitype/ foaf: http://xmlns.com/foaf/0.1/ v: http://www.w3.org/2006/vcard/ns# pimspace: http://www.w3.org/ns/pim/space# cc: https://creativecommons.org/ns# skos: http://www.w3.org/2004/02/skos/core# prov: http://www.w3.org/ns/prov# qb: http://purl.org/linked-data/cube# schema: http://schema.org/ void: http://rdfs.org/ns/void# rsa: http://www.w3.org/ns/auth/rsa# cert: http://www.w3.org/ns/auth/cert# cal: http://www.w3.org/2002/12/cal/ical# wgs: http://www.w3.org/2003/01/geo/wgs84_pos# org: http://www.w3.org/ns/org# biblio: http://purl.org/net/biblio# bibo: http://purl.org/ontology/bibo/ book: http://purl.org/NET/book/vocab# ov: http://open.vocab.org/terms/ sioc: http://rdfs.org/sioc/ns# doap: http://usefulinc.com/ns/doap# dbr: http://dbpedia.org/resource/ dbp: http://dbpedia.org/property/ sio: http://semanticscience.org/resource/ opmw: http://www.opmw.org/ontology/ deo: http://purl.org/spar/deo/ doco: http://purl.org/spar/doco/ cito: http://purl.org/spar/cito/ fabio: http://purl.org/spar/fabio/ oa: http://www.w3.org/ns/oa# as: https://www.w3.org/ns/activitystreams# ldp: http://www.w3.org/ns/ldp# solid: http://www.w3.org/ns/solid/terms# acl: http://www.w3.org/ns/auth/acl# dio: https://w3id.org/dio# as: https://www.w3.org/ns/activitystreams# oa: http://www.w3.org/ns/oa# ldp: http://www.w3.org/ns/ldp#" typeof="schema:CreativeWork sioc:Post prov:Entity">
   <header>
   <h1 id="geospatial-fragmentation-of-open-transit-data">Geospatial fragmentation of open transit data</h1>
 
@@ -54,11 +54,11 @@ Consequently, this increases the likelihood that such a publishing scheme may be
 
       <p>The <a href="https://opendefinition.org/">Open Definition</a> defines open data as data that can be: “… freely used, modified, and shared by anyone for any purpose”. This may seem utopian, but these principles are being adopted all over the world. The OECD has documented the positive impact of <span property="schema:citation http://purl.org/spar/cito/cites" resource="https://dx.doi.org/https://doi.org/https://doi.org/10.1787/5k46bj4f03s7-en"><a href="https://www.oecd-ilibrary.org/content/paper/5k46bj4f03s7-en">Open Government Data</a></span> <span class="references">[<a href="#ref-1">1</a>]</span>, and similar ideas have surfaced in academics with the FAIR Data Principles <span class="references">[<a href="#ref-2">2</a>]</span> where a common guideline is to make data “As open as possible as possible, as closed as necessary” <span class="references">[<a href="#ref-3">3</a>]</span>.</p>
 
-      <p>Consider the case of someone who is looking to buy a house, and the quality of service of wheelchair accessible public transit is important to them. A real estate site could include this information in their item listings, but only if they can find and access relevant datasets. Luckily, many public transit operators publish their timetables as open data. This is often done using de facto standards such as General Transit Feed Specification <a href="https://developers.google.com/transit/gtfs">(GTFS)</a> or using official standards such as Network Timetable Exchange <a href="http://netex-cen.eu/">(NeTEx)</a>. However, these data standards result in large data dumps: the combined GTFS feed of the public transit companies that operate in the Brussels area (SNCB, STIB, De Lijn, and Tec) is already over 1 GB of uncompressed data. A hobbyist developer that wants use a Raspberry Pi to show a dashboard of bus passages near them can run into issues ingesting and processing all this data. What may be feasible for a corporation may not be feasible for a regular person, even though the idea of open data is to make the data usable by anyone.</p>
+      <p>Consider the case of someone who is looking to buy a house, and the quality of service of wheelchair accessible public transit is important to them. A real estate site could include this information in their item listings, but only if they can find and access relevant datasets. Luckily, many public transit operators publish their timetables as open data. This is often done using de facto standards such as General Transit Feed Specification <a href="https://developers.google.com/transit/gtfs">(GTFS)</a> or using official standards such as Network Timetable Exchange <a href="http://netex-cen.eu/">(NeTEx)</a>. However, these data standards result in large data dumps: the combined GTFS feed of the public transit companies that operate in the Brussels area (SNCB, STIB, De Lijn, and Tec) is already over 1 GB of uncompressed data. A hobbyist developer that wants use a Raspberry Pi to show a dashboard of bus passages near them can run into issues ingesting and processing all this data.</p>
 
       <p>Another use case for open transit data is route planning. The ideal route is subjective; a reasonable walking distance differs from person to person, and even depends on a person’s mood. Contemporary route planning services preprocess data to provide better query time performance <span class="references">[<a href="#ref-4">4</a>, <a href="#ref-5">5</a>, <a href="#ref-6">6</a>]</span>, but this preprocessing also restricts the types of queries that can be answered. For example, an algorithm that reuses precomputed shortest paths between stops will not be able to give you the most scenic path – unless those are precomputed as well. But what if you could use your own device to calculate your own personalized routes? You could tweak journeys until you find exactly what you are looking for, without putting an unreasonable strain on a route planning service. This approach obviously comes with its own challenges, and ingesting data is again one of them. Downloading the entire dataset on your phone to plan a route from one adjacent city to another is too slow to be practical.</p>
 
-      <p>These examples show that the way data is published can restrict how the data can be used. The goal of this paper is to find a publishing scheme that is more usable from a data consumer’s perspective.</p>
+      <p>These examples show that the way data is published can restrict how the data can be used. What may be feasible for a corporation may not be feasible for a regular person, even though the idea of open data is to make the data usable by everyone.</p>
 
     </div>
 </section>
@@ -67,87 +67,28 @@ Consequently, this increases the likelihood that such a publishing scheme may be
 <div datatype="rdf:HTML" property="schema:description">
       <h2 property="schema:name">Related work</h2>
 
+      <h3 id="linked-data-fragments">Linked Data Fragments</h3>
+
+      <p>Tim Berners-Lee outlined four principles of Linked Data <span class="references">[<a href="#ref-7">7</a>]</span>: 1) use URIs as names for things, 2) use HTTP URIs so that people can look up those names, 3) when someone looks up a URI, provide useful information using standards such as RDF, and 4) include links to other URIs so that they can discover more things. In the conceptual framework of Linked Data Fragments <span class="references">[<a href="#ref-8">8</a>]</span>, this is just one interface to access Linked Data. You could also publish the data as one large data dump, or provide a querying API on top of the data. What all these interfaces have in common is that they expose a <em>fragment</em> of the entire dataset, so they can all be considered Linked Data Fragments. Data dumps and query APIs are the two extremes on the Linked Data Fragments axis <span class="references">[<a href="#ref-8">8</a>]</span>. This axis serves illustrates the trade-offs between different methods of publishing Linked Data on the Web. Data dumps put the data processing burden on the client’s side, but allow the most flexibility for clients. Query APIs on the other hand put the processing burden on the server side but always restrict, in some way, the way the data can be used.</p>
+
       <h3 id="mobility-data">Mobility Data</h3>
 
-      <p>The General Transit Feed Specification (GTFS) is, at the time of writing, the de facto standard for publishing public transit schedules. A single feed is a combination of 6 to 13 CSV files, compressed into a single ZIP archive. Its core data elements are stops, routes, trips, and stop times. Stops are places where vehicles pick up or drop off riders, routes are two or more stops that form a public transit line, trips correspond to a physical vehicle that follows a route during a specific time period, and stop times indicate when a trip passes by a stop. This data is not only useful for route planning applications, other applications include embedding timetables in mobile applications, data visualization; accessibility analysis, and planning analysis <span class="references">[<a href="#ref-7">7</a>]</span>.</p>
+      <p>The General Transit Feed Specification (GTFS) is, at the time of writing, the de facto standard for publishing public transit schedules. A single feed is a combination of 6 to 13 CSV files, compressed into a single ZIP archive. Its core data elements are stops, routes, trips, and stop times. Stops are places where vehicles pick up or drop off riders, routes are two or more stops that form a public transit line, trips correspond to a physical vehicle that follows a route during a specific time period, and stop times indicate when a trip passes by a stop. This data is not only useful for route planning applications, other applications include embedding timetables in mobile applications, data visualization; accessibility analysis, and planning analysis <span class="references">[<a href="#ref-9">9</a>]</span>.</p>
 
-      <p>Data dumps and query APIs are the two extremes on the Linked Data Fragments axis <span class="references">[<a href="#ref-8">8</a>]</span>. This axis serves as a conceptual framework to discuss trade-odds between different methods of publishing Linked Data on the Web. Data dumps put the data processing burden on the client’s side, but a client that can cope with this burden is free to process it however they want. Query APIs on the other hand put the processing burden on the server side but always restrict, in some way, the way the data can be used. The Linked Connections specification <span class="references">[<a href="#ref-9">9</a>]</span> defines a way to publish transit data that falls somewhere in between these two extremes.</p>
-
-      <p>Public transit schedules as LDF</p>
+      <p>The Linked Connections specification <span class="references">[<a href="#ref-10">10</a>]</span> defines a way to publish transit data that falls somewhere in the middle of the Linked Data Fragments axis. Connections are defined as vehicles going from one stop to another without an intermediate halt. These connections are then ordered by departure time, fragmented into documents, and are then published over HTTP. Clients can use the semantics embedded in each fragment to solve their own queries. This, combined with the fact that each fragment is easily cacheable, make Linked Connections servers very scalable <span class="references">[<a href="#ref-10">10</a>]</span>.</p>
 
       <h3 id="partitioning-public-transit-networks">Partitioning Public Transit Networks</h3>
 
-      <ul>
-        <li>
-          <ul>
-            <li>
-              <p>“For accelerating route planning in road networks, methods based on partitioning [14,15,19,23,24,30,31] turned out to be the most practical ones”</p>
-            </li>
-            <li>
-              <ul>
-                <li>Exploiting topology, largely static data</li>
-              </ul>
-            </li>
-            <li>
-              <p>Mostly done for the purpose of speeding up route planning</p>
-            </li>
-            <li>
-              <p>Scalable Transfer Patterns</p>
-            </li>
-            <li>
-              <ul>
-                <li>http:/​/​ad-publications.informatik.uni-freiburg.de/ALENEX_scalable_tp_BHS_2016.pdf</li>
-                <li>Uses conventional graph clustering algorithms to create sets of stops</li>
-                <li>k-Means clustering:
-Some  methods  for  classification and  analysis  of  multivariate  observations.</li>
-                <li>Merge-based clustering:
-Creating graph partitions for fast optimum route planning.</li>
-                <li>METIS:
-A fast and high quality multilevel scheme for partitioning irregular graphs.</li>
-                <li>PUNCH
-Graph partitioning with natural cuts.</li>
-              </ul>
-            </li>
-            <li>
-              <p>CSAccel</p>
-            </li>
-            <li>
-              <ul>
-                <li>
-                  <p>https:/​/​arxiv.org/pdf/1703.05997.pdf</p>
-                </li>
-                <li>
-                  <p>Uses KaFFPa:</p>
-                </li>
-                <li>
-                  <ul>
-                    <li>Think Locally, Act Globally: Highly Balanced Graph Partitioning</li>
-                  </ul>
-                </li>
-                <li>Found it superior to METIS</li>
-              </ul>
-            </li>
-            <li>
-              <p>HypRAPTOR</p>
-            </li>
-            <li>
-              <ul>
-                <li>http:/​/​drops.dagstuhl.de/opus/volltexte/2017/7896/pdf/OASIcs-ATMOS-2017-8.pdf</li>
-                <li>Uses metis as well</li>
-                <li>But uses it to create sets of trips</li>
-              </ul>
-            </li>
-            <li>
-              <p>Focus so far has been on being robust to changes in the timetable, such as working around train delays.</p>
-            </li>
-            <li>New stops, or trips, will not be used until the preprocessed is repeated.</li>
-          </ul>
-        </li>
-      </ul>
+      <p>Researchers in the field of route planning have noted that while methods based on partitioning have been successful for accelerating queries on road networks, adapting those methods to public transit networks is harder than expected <span class="references">[<a href="#ref-11">11</a>, <a href="#ref-12">12</a>]</span>. One of the main differences is that road networks are, for the most part, topological networks. Public transit networks on the other hand are also inherently time-dependent, while road networks. On top of that, it is not even clear <em>what</em> exactly needs to be partitioned as different algorithms can require wildly different data models <span class="references">[<a href="#ref-13">13</a>]</span>.</p>
 
-      <h3 id="voronoi-partinioning">Voronoi Partinioning</h3>
+      <p>The Scalable Transfer Patterns <span class="references">[<a href="#ref-14">14</a>]</span> algorithm that aims to greatly reduce preprocessing times of the original Transfer Patterns <span class="references">[<a href="#ref-15">15</a>]</span> algorithm. The authors compared 4 different techniques to partition stops into clusters of roughly equal size: 1) k-Means using the stops’ geographical locations, 2) a merge-based clustering with a utility function that punishes big partitions and rewards pairs of partitions with high edge weights between them , 3) a general-purpose graph clustering algorithm called METIS <span class="references">[<a href="#ref-16">16</a>]</span>, and 4) a road partitioning method called PUNCH <span class="references">[<a href="#ref-17">17</a>]</span>. They found that k-Means, despite being completely oblivious to the network structure outperformed, outperformed both METIS and PUNCH while the merge-based approach performed the best of all. HypRAPTOR <span class="references">[<a href="#ref-13">13</a>]</span> is another route planning algorithm that uses METIS to partition the network graph, but it clusters trips instead of stops.</p>
 
-      <p>yes</p>
+      <h3 id="voronoi-diagrams">Voronoi Diagrams</h3>
+
+      <p>Voronoi diagrams are one of the most fundamental data structures in computational geometry <span class="references">[<a href="#ref-18">18</a>]</span>. Although they can be applied to any metric space, we only consider Euclidean spaces in this paper for the sake of simplicity. Given a set of seed points in a Euclidean space, a Voronoi diagram partitions that space into regions so that each region contains exactly one seed point, and every point in a region is closer to that region’s seed point than to any other region’s. Formally this means that for a given Euclidean space <script type="math/tex">X</script> with distance function <script type="math/tex">d</script>, and a set of seed points <script type="math/tex">P \subset X</script>, each point <script type="math/tex">p_i \in P</script> yields a corresponding Voronoi region <script type="math/tex">R_i \subseteq X</script> where</p>
+
+      <script type="math/tex; mode=display">R_i = \{ x \in X \mid d(x, p_i) \leq d(x, p_j) \text{ for all } i \neq j  \}</script>
+
     </div>
 </section>
 
@@ -189,6 +130,8 @@ Graph partitioning with natural cuts.</li>
       <hr />
 
       <p>clustering</p>
+
+      <p>Is it even desirable to use highly balanced clusters? Does that reflect how the data is used?</p>
 
       <ul>
         <li>kmeans with voronoi
@@ -259,6 +202,8 @@ Graph partitioning with natural cuts.</li>
     </div>
 </section>
 
+
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/contrib/mathtex-script-type.min.js" integrity="sha384-LJ2FmexL77rmGm6SIpxq7y+XA6bkLzGZEgCywzKOZG/ws4va9fUVu2neMjvc3zdv" crossorigin="anonymous"></script>
 </main>
 
 <footer><section>
@@ -277,15 +222,32 @@ Graph partitioning with natural cuts.</li>
   <dt id="ref-6">[6]</dt>
   <dd resource="#csa" typeof="schema:CreativeWork">Dibbelt, J., Pajor, T., Strasser, B., Wagner, D.: Connection Scan Algorithm (2017).</dd>
   <dt id="ref-7">[7]</dt>
-  <dd resource="#antrim2013many" typeof="schema:Article">Antrim, A., Barbeau, S.J., others: The many uses of GTFS data–opening the door to transit and multimodal applications. Location-Aware Information Systems Laboratory at the University of South Florida. 4, (2013).</dd>
+  <dd resource="#berners2006linked" typeof="schema:Article">Berners-Lee, T.: Linked data-design issues. <a href="http://www">http:/​/​www</a>. w3. org/DesignIssues/LinkedData. html. (2006).</dd>
   <dt id="ref-8">[8]</dt>
   <dd resource="#verborgh2014querying" typeof="schema:Article">Verborgh, R., Hartig, O., De Meester, B., Haesendonck, G., De Vocht, L., Vander Sande, M., Cyganiak, R., Colpaert, P., Mannens, E., Van de Walle, R.: Querying datasets on the web with high availability. In: International Semantic Web Conference. pp. 180–196. Springer (2014).</dd>
   <dt id="ref-9">[9]</dt>
+  <dd resource="#antrim2013many" typeof="schema:Article">Antrim, A., Barbeau, S.J., others: The many uses of GTFS data–opening the door to transit and multimodal applications. Location-Aware Information Systems Laboratory at the University of South Florida. 4, (2013).</dd>
+  <dt id="ref-10">[10]</dt>
   <dd resource="#colpaert2015intermodal" typeof="schema:Article">Colpaert, P., Llaves, A., Verborgh, R., Corcho, O., Mannens, E., Van de Walle, R.: Intermodal public transit routing using Liked Connections. In: International Semantic Web Conference: Posters and Demos. pp. 1–5 (2015).</dd>
+  <dt id="ref-11">[11]</dt>
+  <dd resource="#berger2009accelerating" typeof="schema:Article">Berger, A., Delling, D., Gebhardt, A., Müller-Hannemann, M.: Accelerating time-dependent multi-criteria timetable information is harder than expected. In: 9th Workshop on Algorithmic Approaches for Transportation Modeling, Optimization, and Systems (ATMOS’09). Schloss Dagstuhl-Leibniz-Zentrum für Informatik (2009).</dd>
+  <dt id="ref-12">[12]</dt>
+  <dd resource="#bauer2011experimental" typeof="schema:Article">Bauer, R., Delling, D., Wagner, D.: Experimental study of speed up techniques for timetable information systems. Networks. 57, 38–52 (2011).</dd>
+  <dt id="ref-13">[13]</dt>
+  <dd resource="#delling2017faster" typeof="schema:Article">Delling, D., Dibbelt, J., Pajor, T., Zündorf, T.: Faster transit routing by hyper partitioning. In: 17th Workshop on Algorithmic Approaches for Transportation Modelling, Optimization, and Systems (ATMOS 2017). Schloss Dagstuhl-Leibniz-Zentrum fuer Informatik (2017).</dd>
+  <dt id="ref-14">[14]</dt>
+  <dd resource="#bast2016scalable" typeof="schema:Article">Bast, H., Hertel, M., Storandt, S.: Scalable transfer patterns. In: 2016 Proceedings of the Eighteenth Workshop on Algorithm Engineering and Experiments (ALENEX). pp. 15–29. SIAM (2016).</dd>
+  <dt id="ref-15">[15]</dt>
+  <dd resource="#bast2010fast" typeof="schema:Article">Bast, H., Carlsson, E., Eigenwillig, A., Geisberger, R., Harrelson, C., Raychev, V., Viger, F.: Fast routing in very large public transportation networks using transfer patterns. In: European Symposium on Algorithms. pp. 290–301. Springer (2010).</dd>
+  <dt id="ref-16">[16]</dt>
+  <dd resource="#karypis1998fast" typeof="schema:Article">Karypis, G., Kumar, V.: A fast and high quality multilevel scheme for partitioning irregular graphs. SIAM Journal on scientific Computing. 20, 359–392 (1998).</dd>
+  <dt id="ref-17">[17]</dt>
+  <dd resource="#delling2011graph" typeof="schema:Article">Delling, D., Goldberg, A.V., Razenshteyn, I., Werneck, R.F.: Graph partitioning with natural cuts. In: 2011 IEEE International Parallel &amp; Distributed Processing Symposium. pp. 1135–1146. IEEE (2011).</dd>
+  <dt id="ref-18">[18]</dt>
+  <dd resource="#aurenhammer1991voronoi" typeof="schema:Article">Aurenhammer, F.: Voronoi diagrams—a survey of a fundamental geometric data structure. ACM Computing Surveys (CSUR). 23, 345–405 (1991).</dd>
 </dl>
 </section>
 </footer>
-
 
 
 </body>

@@ -9,8 +9,13 @@ require 'scholarmarkdown/filter/labelify'
 require 'scholarmarkdown/filter/references_to_footer'
 require 'scholarmarkdown/filter/headerids_to_section'
 require 'scholarmarkdown/filter/citation_metadata'
+require 'scholarmarkdown/preprocess/katex'
 
 Encoding.default_external = "UTF-8"
+
+preprocess do
+  preprocess_katex_assets
+end
 
 compile '/index.*' do
   filter :erb
@@ -23,6 +28,10 @@ compile '/index.*' do
   filter :scholar_references_to_footer
   filter :scholar_headerids_to_section
   filter :rubypants
+  filter :kramdown, math_engine: 'sskatex',
+                    math_engine_opts: {
+                      :katex_js=> File.join(Katex.gem_path, 'vendor', 'katex', 'javascripts', 'katex.js')
+                    }
   layout '/default.*'
   filter :scholar_citation_metadata
 end
