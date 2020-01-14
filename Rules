@@ -32,6 +32,7 @@ compile '/index.*' do
                     math_engine_opts: {
                       :katex_js=> File.join(Katex.gem_path, 'vendor', 'katex', 'javascripts', 'katex.js')
                     }
+  filter :scholar_include_code
   layout '/default.*'
   filter :scholar_citation_metadata
 end

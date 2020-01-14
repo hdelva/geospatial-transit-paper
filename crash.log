@@ -1,8 +1,8 @@
-Crashlog created at 2020-01-03 17:08:46 +0100
+Crashlog created at 2020-01-14 21:21:35 +0100
 
 ===== MESSAGE:
 
-RuntimeError: Could not find the file 'aa'
+RuntimeError: Reference '#partitionresource' does not exist.
 
 ===== ITEM BEING COMPILED:
 
@@ -10,24 +10,29 @@ Current item: /index.md.erb (:default representation)
 
 ===== STACK TRACE:
 
-  0. /usr/lib/ruby/gems/2.6.0/gems/scholarmarkdown-2.7.0/lib/scholarmarkdown/snippets.rb:14:in `section'
-  1. item /index.md.erb (rep default):19:in `get_binding'
-  2. /usr/lib/ruby/2.6.0/erb.rb:901:in `eval'
-  3. /usr/lib/ruby/2.6.0/erb.rb:901:in `result'
-  4. /usr/lib/ruby/gems/2.6.0/gems/nanoc-4.11.14/lib/nanoc/filters/erb.rb:36:in `run'
-  5. /usr/lib/ruby/gems/2.6.0/gems/nanoc-core-4.11.14/lib/nanoc/core/filter.rb:188:in `setup_and_run'
-  6. /usr/lib/ruby/gems/2.6.0/gems/nanoc-core-4.11.14/lib/nanoc/core/executor.rb:22:in `filter'
-  7. /usr/lib/ruby/gems/2.6.0/gems/nanoc-core-4.11.14/lib/nanoc/core/compilation_phases/recalculate.rb:32:in `block in run'
-  8. /usr/lib/ruby/gems/2.6.0/gems/nanoc-core-4.11.14/lib/nanoc/core/action_sequence.rb:49:in `block in each'
-  9. /usr/lib/ruby/gems/2.6.0/gems/nanoc-core-4.11.14/lib/nanoc/core/action_sequence.rb:49:in `each'
-  10. /usr/lib/ruby/gems/2.6.0/gems/nanoc-core-4.11.14/lib/nanoc/core/action_sequence.rb:49:in `each'
-  11. /usr/lib/ruby/gems/2.6.0/gems/nanoc-core-4.11.14/lib/nanoc/core/compilation_phases/recalculate.rb:29:in `run'
-  12. /usr/lib/ruby/gems/2.6.0/gems/nanoc-core-4.11.14/lib/nanoc/core/compilation_phases/abstract.rb:23:in `call'
-  13. /usr/lib/ruby/gems/2.6.0/gems/nanoc-core-4.11.14/lib/nanoc/core/compilation_phases/abstract.rb:25:in `block in call'
-  14. /usr/lib/ruby/gems/2.6.0/gems/nanoc-core-4.11.14/lib/nanoc/core/compilation_phases/cache.rb:25:in `run'
-  15. /usr/lib/ruby/gems/2.6.0/gems/nanoc-core-4.11.14/lib/nanoc/core/compilation_phases/abstract.rb:23:in `call'
-  16. /usr/lib/ruby/gems/2.6.0/gems/nanoc-core-4.11.14/lib/nanoc/core/compilation_phases/abstract.rb:25:in `block in call'
-  17. /usr/lib/ruby/gems/2.6.0/gems/nanoc-core-4.11.14/lib/nanoc/core/compilation_phases/resume.rb:14:in `block in run'
+  0. /home/hdelva/.gem/ruby/2.6.0/gems/bibmarkdown-2.0.0/lib/bibmarkdown/document.rb:52:in `find_entry'
+  1. /home/hdelva/.gem/ruby/2.6.0/gems/bibmarkdown-2.0.0/lib/bibmarkdown/document.rb:60:in `create_reference'
+  2. /home/hdelva/.gem/ruby/2.6.0/gems/bibmarkdown-2.0.0/lib/bibmarkdown/document.rb:21:in `block (2 levels) in to_markdown'
+  3. /home/hdelva/.gem/ruby/2.6.0/gems/bibmarkdown-2.0.0/lib/bibmarkdown/document.rb:21:in `map'
+  4. /home/hdelva/.gem/ruby/2.6.0/gems/bibmarkdown-2.0.0/lib/bibmarkdown/document.rb:21:in `block in to_markdown'
+  5. /home/hdelva/.gem/ruby/2.6.0/gems/bibmarkdown-2.0.0/lib/bibmarkdown/document.rb:17:in `gsub'
+  6. /home/hdelva/.gem/ruby/2.6.0/gems/bibmarkdown-2.0.0/lib/bibmarkdown/document.rb:17:in `to_markdown'
+  7. /usr/lib/ruby/gems/2.6.0/gems/scholarmarkdown-2.7.0/lib/scholarmarkdown/filter/citation.rb:17:in `block in <top (required)>'
+  8. /usr/lib/ruby/gems/2.6.0/gems/nanoc-core-4.11.14/lib/nanoc/core/filter.rb:68:in `instance_exec'
+  9. /usr/lib/ruby/gems/2.6.0/gems/nanoc-core-4.11.14/lib/nanoc/core/filter.rb:68:in `block in define'
+  10. /usr/lib/ruby/gems/2.6.0/gems/nanoc-core-4.11.14/lib/nanoc/core/filter.rb:188:in `setup_and_run'
+  11. /usr/lib/ruby/gems/2.6.0/gems/nanoc-core-4.11.14/lib/nanoc/core/executor.rb:22:in `filter'
+  12. /usr/lib/ruby/gems/2.6.0/gems/nanoc-core-4.11.14/lib/nanoc/core/compilation_phases/recalculate.rb:32:in `block in run'
+  13. /usr/lib/ruby/gems/2.6.0/gems/nanoc-core-4.11.14/lib/nanoc/core/action_sequence.rb:49:in `block in each'
+  14. /usr/lib/ruby/gems/2.6.0/gems/nanoc-core-4.11.14/lib/nanoc/core/action_sequence.rb:49:in `each'
+  15. /usr/lib/ruby/gems/2.6.0/gems/nanoc-core-4.11.14/lib/nanoc/core/action_sequence.rb:49:in `each'
+  16. /usr/lib/ruby/gems/2.6.0/gems/nanoc-core-4.11.14/lib/nanoc/core/compilation_phases/recalculate.rb:29:in `run'
+  17. /usr/lib/ruby/gems/2.6.0/gems/nanoc-core-4.11.14/lib/nanoc/core/compilation_phases/abstract.rb:23:in `call'
+  18. /usr/lib/ruby/gems/2.6.0/gems/nanoc-core-4.11.14/lib/nanoc/core/compilation_phases/abstract.rb:25:in `block in call'
+  19. /usr/lib/ruby/gems/2.6.0/gems/nanoc-core-4.11.14/lib/nanoc/core/compilation_phases/cache.rb:25:in `run'
+  20. /usr/lib/ruby/gems/2.6.0/gems/nanoc-core-4.11.14/lib/nanoc/core/compilation_phases/abstract.rb:23:in `call'
+  21. /usr/lib/ruby/gems/2.6.0/gems/nanoc-core-4.11.14/lib/nanoc/core/compilation_phases/abstract.rb:25:in `block in call'
+  22. /usr/lib/ruby/gems/2.6.0/gems/nanoc-core-4.11.14/lib/nanoc/core/compilation_phases/resume.rb:14:in `block in run'
 
 ===== VERSION INFORMATION:
 
