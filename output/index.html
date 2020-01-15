@@ -10,7 +10,7 @@
   <link rel="stylesheet" media="print"  href="styles/print.css" />  <meta name="citation_title" content="Geospatial fragmentation of open transit data">
   <meta name="citation_author" content="John Doe" />
   
-  <meta name="citation_publication_date" content="2020/01/14" />
+  <meta name="citation_publication_date" content="2020/01/15" />
 </head>
 
 <body prefix="rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns# rdfs: http://www.w3.org/2000/01/rdf-schema# owl: http://www.w3.org/2002/07/owl# xsd: http://www.w3.org/2001/XMLSchema# dcterms: http://purl.org/dc/terms/ dctypes: http://purl.org/dc/dcmitype/ foaf: http://xmlns.com/foaf/0.1/ v: http://www.w3.org/2006/vcard/ns# pimspace: http://www.w3.org/ns/pim/space# cc: https://creativecommons.org/ns# skos: http://www.w3.org/2004/02/skos/core# prov: http://www.w3.org/ns/prov# qb: http://purl.org/linked-data/cube# schema: http://schema.org/ void: http://rdfs.org/ns/void# rsa: http://www.w3.org/ns/auth/rsa# cert: http://www.w3.org/ns/auth/cert# cal: http://www.w3.org/2002/12/cal/ical# wgs: http://www.w3.org/2003/01/geo/wgs84_pos# org: http://www.w3.org/ns/org# biblio: http://purl.org/net/biblio# bibo: http://purl.org/ontology/bibo/ book: http://purl.org/NET/book/vocab# ov: http://open.vocab.org/terms/ sioc: http://rdfs.org/sioc/ns# doap: http://usefulinc.com/ns/doap# dbr: http://dbpedia.org/resource/ dbp: http://dbpedia.org/property/ sio: http://semanticscience.org/resource/ opmw: http://www.opmw.org/ontology/ deo: http://purl.org/spar/deo/ doco: http://purl.org/spar/doco/ cito: http://purl.org/spar/cito/ fabio: http://purl.org/spar/fabio/ oa: http://www.w3.org/ns/oa# as: https://www.w3.org/ns/activitystreams# ldp: http://www.w3.org/ns/ldp# solid: http://www.w3.org/ns/solid/terms# acl: http://www.w3.org/ns/auth/acl# dio: https://w3id.org/dio# as: https://www.w3.org/ns/activitystreams# oa: http://www.w3.org/ns/oa# ldp: http://www.w3.org/ns/ldp#" typeof="schema:CreativeWork sioc:Post prov:Entity">
@@ -213,23 +213,37 @@ Consequently, this increases the likelihood that such a publishing scheme may be
     </div>
 </section>
 
-  <section id="evaluation" inlist="" rel="schema:hasPart" resource="#evaluation">
+  <section id="theevaluation" inlist="" rel="schema:hasPart" resource="#theevaluation">
 <div datatype="rdf:HTML" property="schema:description">
-      <h2 property="schema:name">Evaluation</h2>
+      <h2 property="schema:name">theEvaluation</h2>
 
-      <p>Server and client are two machines on the same local network, with a default 20 ms added per request</p>
+      <h3 id="setup">Setup</h3>
 
-      <p>No caching to isolate the impact of the clustering methods, cacheability of files is simulated separately</p>
+      <p>We have adapted an existing library for client-side route planning so that it can interpret our hypermedia controls, and decide which data to download. This library uses the earliest arrival time variant of the Connection Scan Algorithm. This algorithm, similar to Dijkstra’s algorithm, builds a list of which stops are reachable and how long it takes to reach them. A client that knows the location of each stop can also infer which clusters are reachable, so our adapted route planner simply fetches data for all reachable clusters – slowly growing its list of data sources. We focus on the use-case of client-side route planning because this a relatively demanding application.</p>
 
-      <figure>
+      <p>As mentioned in <a href="#method">Section 3</a>, we use 1 week of Linked Connection as input to train the clustering algorithms. We then used each method to create 4, 8, 16, and 32 clusters. A redis-backed server then creates an ordered list of all connections within every generated region, and exposes these using the hypermedia controls defined in the <a href="#hypermedia-controls">Subsection 3.3</a>. The same server also hosts a version of the data with one cluster that contains all the data, i.e. without any geospatial partitioning. Each data fragment contains 20 minutes of data.</p>
+
+      <p>As a proxy for how <em>useful</em> the geospatially fragmented data is for an end-user, we measure how much work the client has to do to come to the same result. We randomly selected 5,000 queries from a query log that was given to by the transit othetheperator itself. All 5,000 queries occurred on the same day, but throughout the day. We measure how long it takes for the same client to come to an answer with a given partitioning, as well as how much data was downloaded, and compare those values to those of the baseline – the unpartitioned data. We eliminate as many variables as possible to isolate the impact of the partitioning; the client and server run on two separate machines on the same local network, a constant 20 ms of latency is added per response, and the client only processes one query at a time.</p>
+
+      <p>Another important feature of Linked Connections is the cacheability of the data fragments, which give Linked Connections server their scalability. We are making the data more fine-grained though, so we have to measure the impact this has on the cacheability of the data. Unfortunately, we do not have access to any form of user ID, which makes it hard to benchmark a real world scenario where there are client-side and server-side caches. Instead, we measure how fast a cache warms up in every configuration, and what the hit-rate of a warm cache is. These two metrics give an indication of how cacheable the partitioned data is, and how this compares to the cacheability of the original data.</p>
+
+      <p>While running the benchmarks for the usability metrics, we also record which resources are fetched. We then replay these requests, running through a simulated LRU cache to measure the hit rates. Every partition results in roughly 70 MB of gzipped data per day, and a small cache yields more interesting results, so we set the cache size to 20 MB. To measure the hit rates on a warm cache we first run all requests through a cache, and then create 1,000 samples of 500 requests to measure the overall hit rate of each sample. The hit rates on a cold cache are obtained by doing the same on a cold cache, and by varying the amount of requests per sample.</p>
+
+      <h3 id="usability">Usability</h3>
+
+      <figure id="elapsed">
     <img src="./img/elapsed_boxen.svg" width="100%" />
-    <figcaption>elapsed</figcaption>
+    <figcaption><span class="label">Fig. 6:</span> elapsed</figcaption>
 </figure>
 
-      <figure>
+      <figure id="downloaded">
     <img src="./img/downloaded_boxen.svg" width="100%" />
-    <figcaption>downloaded</figcaption>
+    <figcaption><span class="label">Fig. 7:</span> downloaded</figcaption>
 </figure>
+
+      <p><a href="#elapsed">Fig. 6</a> shows that the choice of clustering algorithm has less impact on the query times than the number of clusters, but that we quickly get diminishing returns for adding more clusters. This is to be expected, even without the overhead of ingesting unnecessary data the client still has to compute the route. The results from the METIS method vary a lot depending on the amount of clusters.</p>
+
+      <p>and <a href="#downloaded">Fig. 7</a> shows that both choices have a noticeable impact on the amount of downloaded data. This is to be expected,</p>
 
       <h3 id="cacheability">Cacheability</h3>
 
