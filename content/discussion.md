@@ -1,17 +1,9 @@
 ## Discussion
 
-k-Means does not consider network connectivity, METIS does not consider location
+Our findings shows that results from the field of route planning do not necessarily translate to publishing data on the web. When publishing processed data on the web, we need to keep the processed data to stay in sync with the raw data. We solve this problem by moving some of the clustering logic to the client, which can avoid downloading and parsing a lot of irrelevant data in return. Even a small amount of clusters can make a client-side route planner twice as fast. 
 
-Own creation
+The number of clusters has a noticeable impact on all evaluated metrics. More clusters do not necessarily lead to better results, as we quickly see diminishing returns in terms of query times. The amount of downloaded data does keep decreasing, but at the cost of cacheability. Interestingly, even when starting from a cold cache the cacheability of a small amount of clusters is on par with the cacheability of the original data. Although it takes longer to warm up, the hit rate of a warm cache is higher for fine-grained data. 
 
-- prio
-  - simple chunks of varying size
-- merged
-  - irregular shapes of varying size
-- metis
-  - irregular shapes of equal size
+METIS and k-Means yield good results in the amount of downloaded data metric, but both struggle in other tests. Clusters from METIS have a complex shape because it does not consider the stops' locations, making it harder for clients to interpret them. As a result, the query times using METIS data are consistently worse than those using other methods. A similar pattern presents itself for the merge-based method, which is also noticeable worse in the query time metric -- more so than in the downloaded data metric. The k-Means method on the other hand shows great results in both the query time and downloaded data metrics, but the resulting data fragments are harder to cache. 
 
-Is it even desirable to use highly balanced clusters? Does that reflect how the data is used? 
-
-
-
+The prio method is the only method that performs well across all metrics. This method combines the geospatial and the graph-like features of public transit networks, unlike both k-Means and METIS. The merge-based approach does this all well, but is burdened by more complex cluster shapes. More than anything, partitioning and publishing public transit schedules seems to be an exercise in moderation: don't use too many clusters, and stick to simple shapes.

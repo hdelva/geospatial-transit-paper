@@ -10,7 +10,7 @@
   <link rel="stylesheet" media="print"  href="styles/print.css" />  <meta name="citation_title" content="Geospatial fragmentation of open transit data">
   <meta name="citation_author" content="John Doe" />
   
-  <meta name="citation_publication_date" content="2020/01/15" />
+  <meta name="citation_publication_date" content="2020/01/16" />
 </head>
 
 <body prefix="rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns# rdfs: http://www.w3.org/2000/01/rdf-schema# owl: http://www.w3.org/2002/07/owl# xsd: http://www.w3.org/2001/XMLSchema# dcterms: http://purl.org/dc/terms/ dctypes: http://purl.org/dc/dcmitype/ foaf: http://xmlns.com/foaf/0.1/ v: http://www.w3.org/2006/vcard/ns# pimspace: http://www.w3.org/ns/pim/space# cc: https://creativecommons.org/ns# skos: http://www.w3.org/2004/02/skos/core# prov: http://www.w3.org/ns/prov# qb: http://purl.org/linked-data/cube# schema: http://schema.org/ void: http://rdfs.org/ns/void# rsa: http://www.w3.org/ns/auth/rsa# cert: http://www.w3.org/ns/auth/cert# cal: http://www.w3.org/2002/12/cal/ical# wgs: http://www.w3.org/2003/01/geo/wgs84_pos# org: http://www.w3.org/ns/org# biblio: http://purl.org/net/biblio# bibo: http://purl.org/ontology/bibo/ book: http://purl.org/NET/book/vocab# ov: http://open.vocab.org/terms/ sioc: http://rdfs.org/sioc/ns# doap: http://usefulinc.com/ns/doap# dbr: http://dbpedia.org/resource/ dbp: http://dbpedia.org/property/ sio: http://semanticscience.org/resource/ opmw: http://www.opmw.org/ontology/ deo: http://purl.org/spar/deo/ doco: http://purl.org/spar/doco/ cito: http://purl.org/spar/cito/ fabio: http://purl.org/spar/fabio/ oa: http://www.w3.org/ns/oa# as: https://www.w3.org/ns/activitystreams# ldp: http://www.w3.org/ns/ldp# solid: http://www.w3.org/ns/solid/terms# acl: http://www.w3.org/ns/auth/acl# dio: https://w3id.org/dio# as: https://www.w3.org/ns/activitystreams# oa: http://www.w3.org/ns/oa# ldp: http://www.w3.org/ns/ldp#" typeof="schema:CreativeWork sioc:Post prov:Entity">
@@ -213,57 +213,51 @@ Consequently, this increases the likelihood that such a publishing scheme may be
     </div>
 </section>
 
-  <section id="theevaluation" inlist="" rel="schema:hasPart" resource="#theevaluation">
+  <section id="evaluation" inlist="" rel="schema:hasPart" resource="#evaluation">
 <div datatype="rdf:HTML" property="schema:description">
-      <h2 property="schema:name">theEvaluation</h2>
-
-      <h3 id="setup">Setup</h3>
+      <h2 property="schema:name">Evaluation</h2>
 
       <p>We have adapted an existing library for client-side route planning so that it can interpret our hypermedia controls, and decide which data to download. This library uses the earliest arrival time variant of the Connection Scan Algorithm. This algorithm, similar to Dijkstra’s algorithm, builds a list of which stops are reachable and how long it takes to reach them. A client that knows the location of each stop can also infer which clusters are reachable, so our adapted route planner simply fetches data for all reachable clusters – slowly growing its list of data sources. We focus on the use-case of client-side route planning because this a relatively demanding application.</p>
 
-      <p>As mentioned in <a href="#method">Section 3</a>, we use 1 week of Linked Connection as input to train the clustering algorithms. We then used each method to create 4, 8, 16, and 32 clusters. A redis-backed server then creates an ordered list of all connections within every generated region, and exposes these using the hypermedia controls defined in the <a href="#hypermedia-controls">Subsection 3.3</a>. The same server also hosts a version of the data with one cluster that contains all the data, i.e. without any geospatial partitioning. Each data fragment contains 20 minutes of data.</p>
+      <p>As mentioned in <a href="#method">Section 3</a>, we use 1 week of Linked Connection as input to train the clustering algorithms. We then used each method to create 4, 8, 16, and 32 clusters. A redis-backed server then creates an ordered list of all connections within every generated region, and exposes these using the hypermedia controls defined in the <a href="#hypermedia-controls">Subsection 3.3</a>. The same server also hosts a version of the data with one cluster that contains all the data, i.e. without any geospatial partitioning. Altogether we test 17 different partitionings, each data fragment contains 20 minutes of data.</p>
 
-      <p>As a proxy for how <em>useful</em> the geospatially fragmented data is for an end-user, we measure how much work the client has to do to come to the same result. We randomly selected 5,000 queries from a query log that was given to by the transit othetheperator itself. All 5,000 queries occurred on the same day, but throughout the day. We measure how long it takes for the same client to come to an answer with a given partitioning, as well as how much data was downloaded, and compare those values to those of the baseline – the unpartitioned data. We eliminate as many variables as possible to isolate the impact of the partitioning; the client and server run on two separate machines on the same local network, a constant 20 ms of latency is added per response, and the client only processes one query at a time.</p>
-
-      <p>Another important feature of Linked Connections is the cacheability of the data fragments, which give Linked Connections server their scalability. We are making the data more fine-grained though, so we have to measure the impact this has on the cacheability of the data. Unfortunately, we do not have access to any form of user ID, which makes it hard to benchmark a real world scenario where there are client-side and server-side caches. Instead, we measure how fast a cache warms up in every configuration, and what the hit-rate of a warm cache is. These two metrics give an indication of how cacheable the partitioned data is, and how this compares to the cacheability of the original data.</p>
-
-      <p>While running the benchmarks for the usability metrics, we also record which resources are fetched. We then replay these requests, running through a simulated LRU cache to measure the hit rates. Every partition results in roughly 70 MB of gzipped data per day, and a small cache yields more interesting results, so we set the cache size to 20 MB. To measure the hit rates on a warm cache we first run all requests through a cache, and then create 1,000 samples of 500 requests to measure the overall hit rate of each sample. The hit rates on a cold cache are obtained by doing the same on a cold cache, and by varying the amount of requests per sample.</p>
+      <p>We make extensive use of letter-value plots <span class="references">[<a href="#ref-20">20</a>]</span> as our results have a long tail, causing conventional visualizations such as box plots to label many results as outliers. These plots show the median value as a black line, and then show the 75%, 87.5%, … percentile as separate boxes, making it easy to compare these statistics.</p>
 
       <h3 id="usability">Usability</h3>
 
+      <p>As a proxy for how <em>useful</em> the geospatially fragmented data is for an end-user, we measure how much work the client has to do to come to the same result. Specifically, how long it takes for the same client to come to an answer with a given partitioning, as well as how much data was downloaded, and compare those values to those of the baseline – the unpartitioned data.</p>
+
+      <p>5,000 queries were randomly selected from a query log that was given to by the transit the operator itself. All these queries occurred on the same day, but throughout the day.  We eliminate as many variables as possible to isolate the impact of the partitioning; the client and server run on two separate machines on the same local network, a constant 20 ms of latency is added per response, and the client only processes one query at a time.</p>
+
       <figure id="elapsed">
     <img src="./img/elapsed_boxen.svg" width="100%" />
-    <figcaption><span class="label">Fig. 6:</span> elapsed</figcaption>
+    <figcaption><span class="label">Fig. 6:</span> The median query time with just 4 clusters is already 58% that of the original query times, and using 8 clusters further improves this to 45%. Note the diminishing returns as more clusters are added though, using 16 and 32 clusters lower the relative query times to 41% and 42%. The prio and k-Means methods yield very similar results, while METIS performs significantly worse.</figcaption>
 </figure>
 
       <figure id="downloaded">
     <img src="./img/downloaded_boxen.svg" width="100%" />
-    <figcaption><span class="label">Fig. 7:</span> downloaded</figcaption>
+    <figcaption><span class="label">Fig. 7:</span> Using just 4 clusters is enough to reduce the amount of downloaded data to 45% of the original amount of downloaded data, and adding more clusters consistently improves this metric. Although all methods seem competitive in this metric, the prio method has a consistently low median and 75% percentile.</figcaption>
 </figure>
 
-      <p><a href="#elapsed">Fig. 6</a> shows that the choice of clustering algorithm has less impact on the query times than the number of clusters, but that we quickly get diminishing returns for adding more clusters. This is to be expected, even without the overhead of ingesting unnecessary data the client still has to compute the route. The results from the METIS method vary a lot depending on the amount of clusters.</p>
-
-      <p>and <a href="#downloaded">Fig. 7</a> shows that both choices have a noticeable impact on the amount of downloaded data. This is to be expected,</p>
+      <p><a href="#elapsed">Fig. 6</a> shows that having just a few clusters already significantly improves the query performance, but that adding more clusters has diminishing returns. Even without the overhead of ingesting unnecessary data the client still has to compute the route. The METIS results are somewhat surprising; they are slightly worse across the board, and even become worse when going from 16 to 32 clusters. As <a href="#clusterings">Fig. 2</a> shows, the clusters from METIS are more complex than those from other methods, which creates a heavier workload on the client. <a href="#downloaded">Fig. 7</a> shows that the amount of downloaded data does keep decreasing by adding more clusters, we can even avoid all unnecessary data by creating a cluster per stop.</p>
 
       <h3 id="cacheability">Cacheability</h3>
 
-      <p>no considerable change in total data size, so a cache that is big enough to cache the original data can also cache the partitioned data</p>
+      <p>Another important feature of Linked Connections is the cacheability of the data fragments, which gives a Linked Connections server its scalability. Because we are making the data more fine-grained, we have to measure the impact this has on the cacheability of the data. Unfortunately, we do not have access to any form of user ID, which makes it hard to benchmark a real world scenario where there are client-side and server-side caches. Instead, we measure how fast a cache warms up in every configuration, and what the hit rate of a warm cache is. These two metrics give an indication of how cacheable the partitioned data is, and how this compares to the cacheability of the original data.</p>
 
-      <p>One thing that does change is how fast the cache will fill up - you need at least one request per fragment to fill up a web cache.</p>
+      <p>While running the benchmarks for the usability metrics, we also record which resources are fetched. We then replay these requests, running them through a simulated LRU cache to measure the hit rates. Every partition results in roughly 70 MB of gzipped data per day, and we set the cache size to 20 MB. To measure the hit rates on a warm cache we first run all requests through a cache, and then create 1,000 samples of 500 requests to measure the overall hit rate of each sample. The hit rates on a cold cache are obtained by doing the same starting from a cold cache, and by varying the amount of requests per sample.</p>
 
-      <p>The different partitioning schemes will also diverge when the cache is too small to contain all the data. Filling a cache with fine-grained data will take longer, but the cached data is more likely to be relevant. For example, a purely temporal fragmentation strategy will contain data for the entire operator’s service area, even if one region is significantly less often requested.</p>
-
-      <p>To evaluate how fast a cache is filled we replay a small amount of requests on an empty cache, and do this many times. To evaluate how often relevant data is evicted from the cache we do the same, but on an already warmed up cache.</p>
-
-      <figure>
-    <img src="./img/cold_cache.svg" width="100%" />
-    <figcaption>cold</figcaption>
-</figure>
-
-      <figure>
+      <figure id="warm">
     <img src="./img/warm_cache.svg" width="100%" />
-    <figcaption>warm</figcaption>
+    <figcaption><span class="label">Fig. 8:</span> Less valuable cache space is wasted on irrelevant data by using a fine-grained partitioning. The median hit rate on a warm cache using the unpartitioned data is 26%, the highest hit rate, 44%, is obtained using the prio method at 32 clusters. The k-Means method scores noticeable worse than the other methods.</figcaption>
 </figure>
+
+      <figure id="cold">
+    <img src="./img/cold_cache.svg" width="100%" />
+    <figcaption><span class="label">Fig. 9:</span> Line plots of the median cache hit rates per configuration, showing that caches take longer to warm with a fine-grained partitioning. However, each method with 4 or 8 clusters matches the hit rate of the original data on a warm cache (26%) after 350 requests.</figcaption>
+</figure>
+
+      <p><a href="#warm">Fig. 8</a> and <a href="#cold">Fig. 9</a> show that partitioned data can improve the cache hit rate, but that caches take longer to warm up. All methods are competitive with each other at 4 and 8 clusters, but k-Means is outperformed by the other three at 16 and 32 clusters. Although using 8 instead of 4 clusters yields better hit rates on a warm cache, both configurations surpass the baseline warm cache hit rate of 26% after roughly 350 requests.</p>
     </div>
 </section>
 
@@ -271,36 +265,23 @@ Consequently, this increases the likelihood that such a publishing scheme may be
 <div datatype="rdf:HTML" property="schema:description">
       <h2 property="schema:name">Discussion</h2>
 
-      <p>k-Means does not consider network connectivity, METIS does not consider location</p>
+      <p>Our findings shows that results from the field of route planning do not necessarily translate to publishing data on the web. When publishing processed data on the web, we need to keep the processed data to stay in sync with the raw data. We solve this problem by moving some of the clustering logic to the client, which can avoid downloading and parsing a lot of irrelevant data in return. Even a small amount of clusters can make a client-side route planner twice as fast.</p>
 
-      <p>Own creation</p>
+      <p>The number of clusters has a noticeable impact on all evaluated metrics. More clusters do not necessarily lead to better results, as we quickly see diminishing returns in terms of query times. The amount of downloaded data does keep decreasing, but at the cost of cacheability. Interestingly, even when starting from a cold cache the cacheability of a small amount of clusters is on par with the cacheability of the original data. Although it takes longer to warm up, the hit rate of a warm cache is higher for fine-grained data.</p>
 
-      <ul>
-        <li>prio
-          <ul>
-            <li>simple chunks of varying size</li>
-          </ul>
-        </li>
-        <li>merged
-          <ul>
-            <li>irregular shapes of varying size</li>
-          </ul>
-        </li>
-        <li>metis
-          <ul>
-            <li>irregular shapes of equal size</li>
-          </ul>
-        </li>
-      </ul>
+      <p>METIS and k-Means yield good results in the amount of downloaded data metric, but both struggle in other tests. Clusters from METIS have a complex shape because it does not consider the stops’ locations, making it harder for clients to interpret them. As a result, the query times using METIS data are consistently worse than those using other methods. A similar pattern presents itself for the merge-based method, which is also noticeable worse in the query time metric – more so than in the downloaded data metric. The k-Means method on the other hand shows great results in both the query time and downloaded data metrics, but the resulting data fragments are harder to cache.</p>
 
-      <p>Is it even desirable to use highly balanced clusters? Does that reflect how the data is used?</p>
-
+      <p>The prio method is the only method that performs well across all metrics. This method combines the geospatial and the graph-like features of public transit networks, unlike both k-Means and METIS. The merge-based approach does this all well, but is burdened by more complex cluster shapes. More than anything, partitioning and publishing public transit schedules seems to be an exercise in moderation: don’t use too many clusters, and stick to simple shapes.</p>
     </div>
 </section>
 
-  <section>
+  <section id="conclusion" inlist="" rel="schema:hasPart" resource="#conclusion">
 <div datatype="rdf:HTML" property="schema:description">
+      <h2 property="schema:name">Conclusion</h2>
 
+      <p>The paper introduced hypermedia controls to describe geospatial partitions, which clients can use to discover clusters of public transit stops. We evaluated 4 different clustering methods for the use-case of client-side route planning: k-Means, METIS, and two domain-specific methods of our own. Despite being very popular in the field of route planning, METIS has subpar results compared to the other methods. The complex nature of METIS clusters make them hard to interpret for clients. The other ubiquitous method, k-Means, does lead to good query times, but is harder to cache – which is an important feature for publishing open data in a scalable fashion. The most promising method, both in terms of user convenience and cacheability, is to just create a Voronoi diagram around the most important transportation hubs. Although simple, this method results in simple clusters, while still incorporating both the geospatial and graph-like nature of transit data. The same less-is-more pattern repeats itself when looking at the role of the number of clusters; adding more clusters has diminishing returns on the query time, while making the data harder to cache.</p>
+
+      <p>Our goal was to make open transit data more useful, so that more people can enjoy it in more applications. And in that regard, we succeeded. A small amount of clusters, 4 or 8, and a simple clustering algorithm is all it takes to make client-side route planners more than twice as efficient. Preliminary results show that the cacheability, and thus the scalability, of this approach is on par with the existing Linked Connections publishing scheme. Future work can verify this scalability in the real world, and compare it to both route planning services and existing Linked Connections servers. On top of that, more work can be done into finding good clustering strategies, because what works well for integrated services does not appear to work well for publishing data.</p>
     </div>
 </section>
 
@@ -349,6 +330,8 @@ Consequently, this increases the likelihood that such a publishing scheme may be
   <dd resource="#aurenhammer1991voronoi" typeof="schema:Article">Aurenhammer, F.: Voronoi diagrams—a survey of a fundamental geometric data structure. ACM Computing Surveys (CSUR). 23, 345–405 (1991).</dd>
   <dt id="ref-19">[19]</dt>
   <dd resource="#vlaanderen" typeof="schema:Article">Flanders: Population: size and growth. <a href="https://www.statistiekvlaanderen.be/en/population-size-and-growth-0">https:/​/​www.statistiekvlaanderen.be/en/population-size-and-growth-0</a>. (2019).</dd>
+  <dt id="ref-20">[20]</dt>
+  <dd resource="#letter-value-plot" typeof="schema:CreativeWork">Hofmann, H., Kafadar, K., Wickham, H.: Letter-value plots: Boxplots for large data. had.co.nz (2011).</dd>
 </dl>
 </section>
 </footer>
